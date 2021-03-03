@@ -1,0 +1,324 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Arn0&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.arn0.org/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://blog.arn0.org/media/css/tailwind.css">
+<link rel="stylesheet" href="https://blog.arn0.org/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Arn0&#39;s Blog - Atom Feed" href="https://blog.arn0.org/atom.xml">
+
+    
+
+  <meta name="description" content="" />
+</head>
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+
+    <div class="nav py-3 md:py-8 fixed w-full z-10 bg-gray-50 dark:bg-gray-700 transition-all duration-300" :class="{ 'scroll': scrolled }">
+  <div class="flex justify-end px-4">
+    <div class="w-8 h-8 flex justify-center items-center rounded-full md:hidden" @click="showMenu = !showMenu">
+      <i class="ri-close-line" v-show="showMenu"></i>
+      <i class="ri-menu-3-line" v-show="!showMenu"></i>
+    </div>
+  </div>
+  <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
+    
+      <a href="/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        首页
+      </a>
+    
+      <a href="/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        归档
+      </a>
+    
+      <a href="/tags" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        标签
+      </a>
+    
+      <a href="/post/about" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        关于
+      </a>
+    
+      <a href="https://blog.arn0.org/post/U06tMcf8P" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        友链
+      </a>
+    
+    <a href="https://blog.arn0.org/atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+      RSS
+    </a>
+  </nav>
+</div>
+
+    <div class="max-w-4xl w-full mx-auto ">
+      
+        <header class="flex py-16 md:py-32 mt-12 flex-col md:flex-row px-4 md:px-0 animated fadeIn">
+  <div class="flex-1 order-2 md:order-1 md:pr-16">
+    <div class="text-4xl font-bold text-center md:text-left">
+      Arn0&#39;s Blog
+    </div>
+    <div class="text-xl text-gray-500 mt-4 text-center md:text-left">
+      
+    </div>
+    
+    
+  </div>
+  <div class="md:mx-8 flex-shrink-0 self-start rounded-full border-4 border-dotted border-transparent hover:border-yellow-50 p-2 w-32 h-32 order-1 md:order-2 mx-auto s3-dotted">
+    <img class="rounded-full object-cover" src="https://blog.arn0.org/images/avatar.png?v=1614747294809" alt="Arn0&#39;s Blog" width="100%" height="100%">
+  </div>
+</header>
+      
+
+      <div class="shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">
+        
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/2020-server-error-responses/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          2020 World Error Responses
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-12-31</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        魔幻的2020已经到了尾声，今年发生的事情看起来就像是反乌托邦小说的内容，年初Covid-2019的全球大流行给全球的经济带来剧烈震荡，也带走了李文亮这个最优秀的眼科医生。在这个朋克风格的一年，不知不觉又大了一岁，博客也半年多没有打理了，今...
+      </div>
+      <a href="https://blog.arn0.org/post/2020-server-error-responses/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://blog.arn0.org/post-images/2020-server-error-responses.png" alt="2020 World Error Responses">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/The-Social-Contract-chapter10/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          书摘 | 《社会契约论》第十章 论政府的滥用权力和衰退的倾向
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-05-29</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        
+Arn0注：这本258年前出版的书至今依旧具有启发意义，下文是全文摘录。题外话：据说他看过这本书。不管你信不信，反正我是信了。
+
+正如个体意志总是反抗公共意志，政府始终蕴含着一股与主权者相左的力。这一力量越增长，国家体制就越变质，由于这里...
+      </div>
+      <a href="https://blog.arn0.org/post/The-Social-Contract-chapter10/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/assets/arn0page/images/books.webp" alt="书摘 | 《社会契约论》第十章 论政府的滥用权力和衰退的倾向">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/fix_Jsdelivr_res/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          记 | 修复Jsdelivr静态资源
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-05-19</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>今天没事上自己博客看了下，却发现静态资源全部阵亡。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/fix_Jsdelivr_res/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/img/404.webp" alt="记 | 修复Jsdelivr静态资源">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/【伪开箱】 WIFI版小米智能插座/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          【伪开箱】 WIFI版小米智能插座
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-04-25</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>上周花费50元的惨重代价入了个小米智能插座（WIFI版），幸好善良的京东给予了我0.01元巨额补贴（随即立减99元）。不过有一说一，京东的物流速度一如既往快的让人没话说，下单第二天就送到了。</p>
+<p>没有开箱图，因为没有箱：）来张全家福把。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/【伪开箱】 WIFI版小米智能插座/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/img/xiaomi_WIFI.webp" alt="【伪开箱】 WIFI版小米智能插座">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/page-add-covid-19-map/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          为页面添加COVID-19疫情地图
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-04-14</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>看到<a href="https://idealclover.top/archives/617/">翠翠的博客</a>刚刚发了这篇文章，看起来挺容易搞的，于是就折腾了起来。地图看起来挺不错，可以很清楚地看到各地区的疫情数字。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/page-add-covid-19-map/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master//img/COVID-19.webp" alt="为页面添加COVID-19疫情地图">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/Halo主题定制——寒山启用DisqusJS/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          Halo主题定制——寒山启用DisqusJS
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-04-12</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>寒山是我迁移到Halo后用的第二款主题（第一款当然就是Halo自带的Anatole啦），也是我目前为止最满意的一款主题。只是美中不足的是这款主题不支持DisqusJS，有点不习惯，于是乎就搞上了这玩意。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/Halo主题定制——寒山启用DisqusJS/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/img/disqusjs_and_halo.webp" alt="Halo主题定制——寒山启用DisqusJS">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/hello-halo/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          Halo你好，Hexo再见。
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-04-11</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>Hello Halo<br>
+如果你看到了这一篇文章，那么证明你已经安装成功了，感谢使用 <a href="https://halo.run">Halo</a> 进行创作，希望能够使用愉快。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/hello-halo/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/img/5c1cd34849751.webp" alt="Halo你好，Hexo再见。">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/change-to-sakura-theme/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          又换主题了
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-03-11</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p><s>额我为什么要说又?</s></p>
+<p>其实这个主题我之前早就用过了，不过当时用的是WordPress版本的，当时还得意洋洋地写了篇<s>狗屁不通的</s><a href="https://blog.arn0.org/post/Unofficial_-%C2%B7-Sakura_Incomplete_Configuration_Tutorial/">教程</a>。之前迁移到Hexo后就换到Suka用了一阵子，就觉得这种简洁风格不太适合我。于是乎就用回了Sakura。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/change-to-sakura-theme/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/Sakura.webp" alt="又换主题了">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/服务器部署Hexo-admin/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          服务器部署Hexo-admin
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-03-10</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>之前试了一下用<a href="https://arn0note.github.io/post/%E4%BD%BF%E7%94%A8CMS%E7%AE%A1%E7%90%86Hexo%E6%96%87%E7%AB%A0/">Netlify托管我的Hexo博客</a>，但用着感觉不太顺心。所以就试着直接用HexoAdmin来管理文章。虽说Netlify有可视化的编辑器，手机也可以打开，但是因为那个编辑器并没有自适应页面大小，手机访问直接给你怼个大页面，找个按钮都要比划半天……</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/服务器部署Hexo-admin/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/hexo-admin.webp" alt="服务器部署Hexo-admin">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/Travis部署Hexo/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          Travis部署Hexo
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-02-19</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>最近实在是无聊了,开始花式瞎折腾Hexo<s>的那些被玩剩下的玩法</s>，于是乎又水了一篇。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/Travis部署Hexo/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/TravisCI-Full.webp" alt="Travis部署Hexo">
+    
+  </div>
+  
+      </div>
+
+      
+  <div class="my-4 flex justify-between px-4 md:px-0">
+    
+    
+      <a href="https://blog.arn0.org/page/2" class="btn btn-white">
+        下一页
+        <i class="ri-arrow-right-line ml-4"></i>
+      </a>
+    
+  </div>
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</footer>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://blog.arn0.org/media/scripts/main.js"></script>
+</body>
+
+</html>

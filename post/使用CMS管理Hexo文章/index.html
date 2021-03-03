@@ -1,0 +1,466 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>使用CMS管理Hexo文章 - Arn0&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.arn0.org/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://blog.arn0.org/media/css/tailwind.css">
+<link rel="stylesheet" href="https://blog.arn0.org/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="使用CMS管理Hexo文章 - Arn0&#39;s Blog - Atom Feed" href="https://blog.arn0.org/atom.xml">
+
+    
+
+  <meta name="description" content="闲来无事折腾了一下Hexo，纯属偶然发现有一个叫netlify的网站可以提供静态网站的托管服务，能提供CMS服务，让静态网站也能享受类似WordPress的在线编辑！简直太棒了！
+
+在Hexo上添加netlify-cms相关内容
+添加依赖包..." />
+  <meta property="og:title" content="使用CMS管理Hexo文章 - Arn0&#39;s Blog">
+  <meta property="og:description" content="闲来无事折腾了一下Hexo，纯属偶然发现有一个叫netlify的网站可以提供静态网站的托管服务，能提供CMS服务，让静态网站也能享受类似WordPress的在线编辑！简直太棒了！
+
+在Hexo上添加netlify-cms相关内容
+添加依赖包..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://blog.arn0.org/post/使用CMS管理Hexo文章/" />
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/netlify.webp">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="使用CMS管理Hexo文章 - Arn0&#39;s Blog">
+  <meta name="twitter:description" content="闲来无事折腾了一下Hexo，纯属偶然发现有一个叫netlify的网站可以提供静态网站的托管服务，能提供CMS服务，让静态网站也能享受类似WordPress的在线编辑！简直太棒了！
+
+在Hexo上添加netlify-cms相关内容
+添加依赖包...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://blog.arn0.org/post/使用CMS管理Hexo文章/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+    <link rel="stylesheet" href="https://blog.arn0.org/media/css/prism-atom-dark.css">
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://blog.arn0.org" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      Arn0&#39;s Blog
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          使用CMS管理Hexo文章
+        </h1>
+        
+          <img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/netlify.webp" alt="使用CMS管理Hexo文章" class="block w-full mb-8">
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2020-02-07 · 7 min read</div>
+          
+            <a href="https://blog.arn0.org/tag/Pvr7cWrf1p/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Hexo
+            </a>
+          
+            <a href="https://blog.arn0.org/tag/1eZZFy5F41/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              CMS
+            </a>
+          
+            <a href="https://blog.arn0.org/tag/diJYKqWhmY/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              netlify
+            </a>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <p>闲来无事折腾了一下Hexo，纯属偶然发现有一个叫<a href="https://www.netlify.com/">netlify</a>的网站可以提供静态网站的托管服务，能提供CMS服务，让静态网站也能享受类似WordPress的在线编辑！简直太棒了！</p>
+<!--more-->
+<h2 id="在hexo上添加netlify-cms相关内容">在Hexo上添加netlify-cms相关内容</h2>
+<h3 id="添加依赖包">添加依赖包</h3>
+<pre><code class="language-shell">npm i hexo-netlify-cms --save
+</code></pre>
+<h3 id="修改hexo主配置文件">修改Hexo主配置文件</h3>
+<p>在<code>_config.yml</code>里面添加</p>
+<pre><code class="language-yaml">netlify_cms:
+  config_file: netlify.yaml
+</code></pre>
+<h3 id="创建netlify配置文件">创建netlify配置文件</h3>
+<p>在hexo根目录创建netlify.yaml文件，输入以下内容</p>
+<pre><code class="language-yaml">backend:
+  name: git-gateway
+  branch: master
+
+media_folder: source/images
+public_folder: /images
+publish_mode: editorial_workflow
+
+# pages auto generate
+pages: 
+  enabled: true
+  # over page collection config
+  # if fields not set, would use posts fields config
+  config:
+    label: &quot;Page&quot;
+    delete: false
+    editor:
+      preview: true
+    # fields: 
+# through hexo config over fields
+over_format: true
+scripts:
+  - js/cms/youtube.js
+  - js/cms/img.js
+
+# A list of collections the CMS should be able to edit
+collections:
+  # Used in routes, ie.: /admin/collections/:slug/edit
+  - name: &quot;posts&quot;
+    # Used in the UI, ie.: &quot;New Post&quot;
+    label: &quot;Post&quot;
+    folder: &quot;source/_posts&quot; # The path to the folder where the documents are stored
+    sort: &quot;date:desc&quot;
+    create: true # Allow users to create new documents in this collection
+    editor:
+      preview: true
+    fields: # The fields each document in this collection have
+      - {label: &quot;Title&quot;, name: &quot;title&quot;, widget: &quot;string&quot;}
+      - {label: &quot;Publish Date&quot;, name: &quot;date&quot;, widget: &quot;datetime&quot;, format: &quot;YYYY-MM-DD HH:mm:ss&quot;, dateFormat: &quot;YYYY-MM-DD&quot;, timeFormat: &quot;HH:mm:ss&quot;, required: false}
+      - {label: &quot;Updeted Date&quot;, name: &quot;updated&quot;, widget: &quot;datetime&quot;, format: &quot;YYYY-MM-DD HH:mm:ss&quot;, required: false}
+      - {label: &quot;Tags&quot;, name: &quot;tags&quot;, widget: &quot;list&quot;, required: false}
+      - {label: &quot;Thumbnail&quot;, name: &quot;thumbnail&quot;, widget: &quot;string&quot;, required: false}
+      - {label: &quot;Categories&quot;, name: &quot;categories&quot;, widget: &quot;list&quot;, required: false}
+      - {label: &quot;Body&quot;, name: &quot;body&quot;, widget: &quot;markdown&quot;, required: false}
+      - {label: &quot;Permalink&quot;, name: &quot;permalink&quot;, widget: &quot;string&quot;, required: false}
+      - {label: &quot;Comments&quot;, name: &quot;comments&quot;, widget: &quot;boolean&quot;, default: true, required: false}
+
+</code></pre>
+<p><code>label</code>那里,如果你用的不是Suka主题的话，有些小地方需要根据实际情况进行修改，比如</p>
+<p><code>- {label: &quot;Thumbnail&quot;, name: &quot;thumbnail&quot;, widget: &quot;string&quot;, required: false}</code><br>
+在其他主题里面，如<a href="https://github.com/honjun/hexo-theme-sakura">Hexo-Sakura</a>，需要修改为下面这样才可以正常添加文章缩略图。<br>
+<code>- {label: &quot;Photos&quot;, name: &quot;thumbnail&quot;, widget: &quot;string&quot;, required: false}</code><br>
+其他的自己一边看<a href="https://www.netlifycms.org/docs/configuration-options/">文档</a>一边摸索下吧</p>
+<h3 id="给主题引入netlify-identity-widgetjs">给主题引入netlify-identity-widget.js</h3>
+<p>在主题的<code>layout/index.ejs</code>添加</p>
+<pre><code class="language-html">&lt;script src=&quot;https://identity.netlify.com/v1/netlify-identity-widget.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>这样在进入首页的时候就会加载<code>netlify-identity-widget.js</code>。</p>
+<h2 id="代码托管">代码托管</h2>
+<blockquote>
+<p>建议用Github。原因无他，因为Github口碑最好，同时牌子最老。下面的操作以使用Github为例。</p>
+</blockquote>
+<p>首先把博客文件托管到Github，最好是建一个私有仓库，这样可以保证配置文件的敏感信息（如API信息）不会被泄漏。</p>
+<p>应该都会用Github吧，不会的话就查下<a href="https://help.github.com/cn/github/getting-started-with-github/create-a-repo">文档</a>吧。</p>
+<h2 id="注册netlify">注册netlify</h2>
+<p>然后<a href="https://www.netlify.com/">注册并登陆</a>，Github账号登录即可。</p>
+<p>之后进入<a href="https://app.netlify.com/">这个页面</a>，按照提示，授权访问、选择仓库。</p>
+<p>选择仓库确认后，<code>Bulid</code>那里为了在构建的时候能安装依赖，需要改动一下，如果你跟我一样用Suka主题的话，那么就改为<code>npm i &amp;&amp; cd themes/suka/ &amp;&amp; npm i &amp;&amp; cd ../../ &amp;&amp; hexo g</code>，其他主题目录里面有<code>package.json</code>的同理，只需将上面那行命令的<code>suka</code>改为你主题的目录名即可。</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/2020-02-07.webp" alt="Deploy" loading="lazy"></figure>
+<p>然后点击Deploy即可。</p>
+<h2 id="設置gateway">設置Gateway</h2>
+<p>如图，点击Enable后按照提示授权即可。<br>
+<img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/netfliy_set_gatewat.webp" alt="" loading="lazy"></p>
+<h3 id="设置为仅邀请模式">设置为仅邀请模式</h3>
+<p>为了不使你的文章被任意修改，设置为仅邀请模式。</p>
+<p>在你的Oerview页面顶部导航那点击identity，点击Enable identity，然后点击Invite users。<br>
+写上你自己的邮箱并确认，过一会你的邮箱就会收到netlify的邮件，标题为&quot;You've been invited to join(项目名称)&quot;，点击Accept the invite即可，这个邮箱接下来可以在admin页面那里用作登陆用的账户名。最多可以绑定的邮箱上限为 5 个。同时，也可以添加使用 github 账号登录的选项。</p>
+<h2 id="绑定域名">绑定域名</h2>
+<h3 id="添加域名">添加域名</h3>
+<p>按照图里的顺序，找到Add custom domain，点击并输入域名</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/netfliysetting_domain.webp" alt="netfliy-setting_domain" loading="lazy"></figure>
+<p>按照提示输入域名后，点击我画圈标记的地方，如图</p>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/netfliy-set-cname(1).webp" alt="netfliy-set-cname" loading="lazy"></figure>
+<p>然后将弹出相关文档，指示要做一个301跳转。MD做301又要搞一个web服务器，很烦的好吗？（恼</p>
+<p>这里其实不用做301，直接在DNS那里添加一条CNAME即可。</p>
+<p>怎样添加？这里以CloudFlare为例，假设我域名是arn0.org，像要把域名绑定到blog.arn0.org这个二级域名的话，操作如图：</p>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/CloudFlare_cname.webp" alt="CloudFlare_cname" loading="lazy"></figure>
+<p>简而言之就是要在Type那选择CNAME，Name那里随便你填什么都行，这个决定你的域名的第一级名称，不要有特殊符号就行。</p>
+<p>还有记得要把旁边的Proxy status橙色云点掉，让它变成灰色，不然等下申请不了SSL证书。</p>
+<p>最后回到刚刚那个页面，点击Verify DNS configuration，等几分钟，让DNS缓存更新、SSL证书签发完成后。域名就绑定完成了。</p>
+<figure data-type="image" tabindex="5"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/netlify_cname_complet.webp" alt="Verify DNS configuration" loading="lazy"></figure>
+<h2 id="完事了">完事了？</h2>
+<p>现在，你可以直接在你博客的主页链接后面添加/admin，输入用户名以及密码后就可以体验在线编辑了。</p>
+<h3 id="登陆后post页面空白">登陆后post页面空白</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/netfliy_blank.webp" alt="" loading="lazy"><br>
+我第一次搞好之后发现这种情况，网上也没有人遇到过。百思不得其解，最后随便打开一篇文章发现</p>
+<pre><code class="language-markdown">title: base64编码-解码字符串
+author: Arn0
+
+---
+
+</code></pre>
+<p>顶部那里居然少了一行<code>---</code>？所有文章都是同样的情况......</p>
+<p>解决这种情况，只需要在文章顶部添加<code>---</code>即可，因为我是所有文章都要添加，不可能一个个手动修改，于是乎用上了sed：</p>
+<pre><code>sed -i '1i\---' source/_posts/*.md
+</code></pre>
+<p>完美，这下所有文章都改好了。</p>
+<figure data-type="image" tabindex="6"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/netlify_postname.webp" alt="netlify_postname" loading="lazy"></figure>
+<br>
+参考链接
+<p><a href="https://42one.xyz/2019/07/24/blogdesign/#book:mark">博客写作攻略 --Hexo+Github+Netlify+CMS</a></p>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+        
+
+        
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script type="application/javascript" src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script type="application/javascript">
+
+var options = {
+  shortname: 'jsuses-blog',
+  apikey: 'c7Jz7qwa2Rxu1b59XjtpYyALBsVKlyLRoKc46jF4Bh6LMDTVFSjfuKjnfcWnBI3U',
+}
+if ('https://disqusjs-proxy.arn0.now.sh/') {
+  options.api = 'https://disqusjs-proxy.arn0.now.sh/'
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+        
+      
+
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%9C%A8hexo%E4%B8%8A%E6%B7%BB%E5%8A%A0netlify-cms%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9">在Hexo上添加netlify-cms相关内容</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E5%8C%85">添加依赖包</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9hexo%E4%B8%BB%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">修改Hexo主配置文件</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAnetlify%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">创建netlify配置文件</a></li>
+<li><a href="#%E7%BB%99%E4%B8%BB%E9%A2%98%E5%BC%95%E5%85%A5netlify-identity-widgetjs">给主题引入netlify-identity-widget.js</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1">代码托管</a></li>
+<li><a href="#%E6%B3%A8%E5%86%8Cnetlify">注册netlify</a></li>
+<li><a href="#%E8%A8%AD%E7%BD%AEgateway">設置Gateway</a>
+<ul>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E4%B8%BA%E4%BB%85%E9%82%80%E8%AF%B7%E6%A8%A1%E5%BC%8F">设置为仅邀请模式</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D">绑定域名</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E5%9F%9F%E5%90%8D">添加域名</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%8C%E4%BA%8B%E4%BA%86">完事了？</a>
+<ul>
+<li><a href="#%E7%99%BB%E9%99%86%E5%90%8Epost%E9%A1%B5%E9%9D%A2%E7%A9%BA%E7%99%BD">登陆后post页面空白</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://blog.arn0.org/media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+    <script src="https://blog.arn0.org/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+  
+    
+  
+</body>
+
+</html>

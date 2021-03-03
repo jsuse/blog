@@ -1,0 +1,360 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>WordPress博客安全优化 - Arn0&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.arn0.org/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://blog.arn0.org/media/css/tailwind.css">
+<link rel="stylesheet" href="https://blog.arn0.org/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="WordPress博客安全优化 - Arn0&#39;s Blog - Atom Feed" href="https://blog.arn0.org/atom.xml">
+
+    
+
+  <meta name="description" content="操作系统及LNMP基础防护
+WordPress搭建于操作系统以及LNMP之上，想要WordPress安全，那操作系统和LNMP自然需要做些安全防护。
+
+操作系统自动更新
+操作系统自动更新的必要性不用我说了吧。这里只列举主流Linux发行版的..." />
+  <meta property="og:title" content="WordPress博客安全优化 - Arn0&#39;s Blog">
+  <meta property="og:description" content="操作系统及LNMP基础防护
+WordPress搭建于操作系统以及LNMP之上，想要WordPress安全，那操作系统和LNMP自然需要做些安全防护。
+
+操作系统自动更新
+操作系统自动更新的必要性不用我说了吧。这里只列举主流Linux发行版的..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://blog.arn0.org/post/WordPress博客安全优化/" />
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/wordpress.webp">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="WordPress博客安全优化 - Arn0&#39;s Blog">
+  <meta name="twitter:description" content="操作系统及LNMP基础防护
+WordPress搭建于操作系统以及LNMP之上，想要WordPress安全，那操作系统和LNMP自然需要做些安全防护。
+
+操作系统自动更新
+操作系统自动更新的必要性不用我说了吧。这里只列举主流Linux发行版的...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://blog.arn0.org/post/WordPress博客安全优化/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+    <link rel="stylesheet" href="https://blog.arn0.org/media/css/prism-atom-dark.css">
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://blog.arn0.org" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      Arn0&#39;s Blog
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          WordPress博客安全优化
+        </h1>
+        
+          <img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/wordpress.webp" alt="WordPress博客安全优化" class="block w-full mb-8">
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2019-11-18 · 4 min read</div>
+          
+            <a href="https://blog.arn0.org/tag/udvgV2Vi9F/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Wordpress
+            </a>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <h3 id="操作系统及lnmp基础防护">操作系统及LNMP<strong>基础防护</strong></h3>
+<p>WordPress搭建于操作系统以及LNMP之上，想要WordPress安全，那操作系统和LNMP自然需要做些安全防护。</p>
+<!-- more -->
+<h4 id="操作系统自动更新">操作系统自动更新</h4>
+<p>操作系统自动更新的必要性不用我说了吧。这里只列举主流Linux发行版的自动更新方式，反正冷门Linux发行版和Unix用户在选择系统的时候早就做好了心理准备。 <a href="https://www.debian.cn/archives/2307">Debian</a> <a href="https://linux.cn/article-9455-1.html">CentOS</a> 至于Ubuntu的话应该也跟Debian差不多，但是因为我没有用过Ubuntu，而且<a href="https://www.google.com/search?ei=gL3_XK2lKpHj-AbB7arICA&amp;q=Ubuntu+Server+%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0&amp;oq=Ubuntu+Server+%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0&amp;gs_l=psy-ab.3..0i30.40115.44478..44955...0.0..2.324.2002.6j4j0j3......0....1..gws-wiz.......0i7i30j0i8i7i30j0i13j0j0i8i30.pA_UY73DwY8">谷歌一下</a>也有很多相关的教程，所以这里就不写了。</p>
+<h4 id="mysql安全防护">MySQL安全防护</h4>
+<p>这里偷个懒，直接贴个<a href="https://www.alibabacloud.com/help/zh/faq-detail/49568.htm">文档</a>。</p>
+<h4 id="nginx安全防护">Nginx安全防护</h4>
+<p>SSL是肯定要上的，不然登录信息全被截胡就很尴尬了。这里再偷个懒，看<a href="https://juejin.im/post/5c0144036fb9a04a102f046a">这篇文章</a>。 还有，空主机头也要记得关闭，不然会被其他人恶意绑定域名，看[这篇文章](https://blog.arn0.org/post/Nginx只允许CDN IP访问 隐藏原站/)。</p>
+<h3 id="wordpress加固">WordPress加固</h3>
+<h4 id="避免使用默认数据库前缀-wp_">避免使用默认数据库前缀 wp_</h4>
+<p>有种攻击方式叫<a href="https://zh.m.wikipedia.org/zh-hant/SQL%E6%B3%A8%E5%85%A5">SQL注入攻击</a>。更改数据库前缀可以挡住大部分SQL注入攻击。<a href="http://zmingcx.com/modify-the-wordpress-database-prefix.html">点我告诉你怎么做</a>，懂洋文的同学就<a href="https://trickspanda.com/change-wordpress-database-prefix/">看这篇吧</a>。</p>
+<h4 id="防止密码爆破">防止密码爆破</h4>
+<p>总会有人用自动脚本扫描整个网络，为的是寻找装有WordPress的主机，找到了之后直接就进/wp-admin。进入了干嘛？那当然就是对用户名/密码进行字典爆破了，他们认为登录成功率还挺高。那为啥会有人对这样自动脚本这么有信心？</p>
+<blockquote>
+<p>2016年“123456”的风头盖过了“password”</p>
+</blockquote>
+<p>安装<a href="https://cn.wordpress.org/plugins/wps-hide-login/">WPS Hide Login</a>插件可以防住大部分类似这样的脚本。因为这个插件可以修改WordPress登录入口，登录入口一旦修改，自动脚本便无法快速找到入口。但要完全杜绝密码爆破，这个安全防护还远远不够，还需要一个插件——<a href="https://wordpress.org/plugins/wordfence/">Wordfence Security</a> ，这个插件可以实现定期安全扫描，除此之外能做的事还挺多。例如设置2FA，要发挥这个插件的真正实力，除了IP白名单外，最好将其他可以打开的防护都打开，当然2FA也要设置，因为即使隐藏了登录入口，依然会有人可以通过穷举法找到入口并可以进行密码爆破。但有了2FA，就算是运气爆棚猜中了你的密码也进不了后台。这个插件厉害的地方可不止这些，要详细了解其他功能的话就看一下插件的说明吧。</p>
+<h4 id="设置自动更新">设置自动更新</h4>
+<p>安装<a href="https://wordpress.org/plugins/companion-auto-update/">Companion Auto Update</a>，这个插件可以实现WordPress核心及其他插件的自动更新。</p>
+<h4 id="过滤垃圾评论">过滤垃圾评论</h4>
+<p>这里说的垃圾评论不仅仅是指那些打广告的，还有那些在评论里面嵌入一些恶意代码用来执行<a href="https://zh.m.wikipedia.org/zh-hans/%E8%B7%A8%E7%B6%B2%E7%AB%99%E6%8C%87%E4%BB%A4%E7%A2%BC">XSS攻击</a>的，一不留神就会中招。 该做什么？ 装好WordPress立即打开<a href="https://wordpress.org/plugins/akismet/">Akismet</a>注册并启用过滤服务。 要么就是审核用户评论，在设置-&gt;讨论中可以配置。</p>
+<h4 id="谨慎使用主题"><strong>谨慎使用主题</strong></h4>
+<p>一些主题内置后门程序，光看外表看不出来，必须看源码一点一点查才看得出来。没有看懂源代码能力的童鞋安装主题最好去<a href="https://wordpress.org/themes/browse/featured/">官方主题站</a>安装主题。</p>
+<h4 id="不要用常用的用户名作为后台登录用户名">不要用常用的用户名作为后台登录用户名</h4>
+<p>常用用户名容易被猜出来。如果要修改的话，可以通过“新增用户”的方法，这个方法相对而言实现起来非常的简单，我们只需要在后台再添加一个任意用户名并赋予管理员权限，然后使用此用户登录并删除之前用户名用户即可，有些童鞋可能就会问了，我删除之前用户后我之前的文章怎么办？大可放心，WordPress会提示你将文章转移到其它用户上，so放心的删除吧。</p>
+<h4 id="设置自动备份">设置自动备份</h4>
+<p>有时候，就算准备得再充分，也会有疏漏。站被黑了，数据盘坏了，手里还连备份都没有，那就是最糟糕的情况。安装<a href="https://wordpress.org/plugins/updraftplus/">UpdraftPus</a>，绑定个云盘，并且设置每日自动备份。有了备份，遇到再糟糕的情况都能恢复过来。</p>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+        
+
+        
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script type="application/javascript" src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script type="application/javascript">
+
+var options = {
+  shortname: 'jsuses-blog',
+  apikey: 'c7Jz7qwa2Rxu1b59XjtpYyALBsVKlyLRoKc46jF4Bh6LMDTVFSjfuKjnfcWnBI3U',
+}
+if ('https://disqusjs-proxy.arn0.now.sh/') {
+  options.api = 'https://disqusjs-proxy.arn0.now.sh/'
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+        
+      
+
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%8Alnmp%E5%9F%BA%E7%A1%80%E9%98%B2%E6%8A%A4">操作系统及LNMP<strong>基础防护</strong></a>
+<ul>
+<li><a href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0">操作系统自动更新</a></li>
+<li><a href="#mysql%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4">MySQL安全防护</a></li>
+<li><a href="#nginx%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4">Nginx安全防护</a></li>
+</ul>
+</li>
+<li><a href="#wordpress%E5%8A%A0%E5%9B%BA">WordPress加固</a>
+<ul>
+<li><a href="#%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E6%95%B0%E6%8D%AE%E5%BA%93%E5%89%8D%E7%BC%80-wp_">避免使用默认数据库前缀 wp_</a></li>
+<li><a href="#%E9%98%B2%E6%AD%A2%E5%AF%86%E7%A0%81%E7%88%86%E7%A0%B4">防止密码爆破</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0">设置自动更新</a></li>
+<li><a href="#%E8%BF%87%E6%BB%A4%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA">过滤垃圾评论</a></li>
+<li><a href="#%E8%B0%A8%E6%85%8E%E4%BD%BF%E7%94%A8%E4%B8%BB%E9%A2%98"><strong>谨慎使用主题</strong></a></li>
+<li><a href="#%E4%B8%8D%E8%A6%81%E7%94%A8%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%A8%E6%88%B7%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%90%8E%E5%8F%B0%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7%E5%90%8D">不要用常用的用户名作为后台登录用户名</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD">设置自动备份</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://blog.arn0.org/media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+    <script src="https://blog.arn0.org/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+  
+    
+  
+</body>
+
+</html>

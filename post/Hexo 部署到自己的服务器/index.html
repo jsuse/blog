@@ -1,0 +1,543 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Hexo 部署到自己的服务器 - Arn0&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.arn0.org/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://blog.arn0.org/media/css/tailwind.css">
+<link rel="stylesheet" href="https://blog.arn0.org/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Hexo 部署到自己的服务器 - Arn0&#39;s Blog - Atom Feed" href="https://blog.arn0.org/atom.xml">
+
+    
+
+  <meta name="description" content="刚刚把服务器迁移到OranMe的服务器上了。原因无他，就是Coding Page的国外访问速度实在是一般，毕竟是免费的东西嘛，也是意料之中。
+趁着有人要出OranMe的Web Only主机，就把博客迁过来了。
+
+要在本地推送内容更新远程服务..." />
+  <meta property="og:title" content="Hexo 部署到自己的服务器 - Arn0&#39;s Blog">
+  <meta property="og:description" content="刚刚把服务器迁移到OranMe的服务器上了。原因无他，就是Coding Page的国外访问速度实在是一般，毕竟是免费的东西嘛，也是意料之中。
+趁着有人要出OranMe的Web Only主机，就把博客迁过来了。
+
+要在本地推送内容更新远程服务..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://blog.arn0.org/post/Hexo 部署到自己的服务器/" />
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/hexo.webp">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="Hexo 部署到自己的服务器 - Arn0&#39;s Blog">
+  <meta name="twitter:description" content="刚刚把服务器迁移到OranMe的服务器上了。原因无他，就是Coding Page的国外访问速度实在是一般，毕竟是免费的东西嘛，也是意料之中。
+趁着有人要出OranMe的Web Only主机，就把博客迁过来了。
+
+要在本地推送内容更新远程服务...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://blog.arn0.org/post/Hexo 部署到自己的服务器/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+    <link rel="stylesheet" href="https://blog.arn0.org/media/css/prism-atom-dark.css">
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://blog.arn0.org" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      Arn0&#39;s Blog
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          Hexo 部署到自己的服务器
+        </h1>
+        
+          <img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/hexo.webp" alt="Hexo 部署到自己的服务器" class="block w-full mb-8">
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2020-02-02 · 7 min read</div>
+          
+            <a href="https://blog.arn0.org/tag/Pvr7cWrf1p/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Hexo
+            </a>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <p>刚刚把服务器迁移到OranMe的服务器上了。原因无他，就是Coding Page的国外访问速度实在是一般，毕竟是免费的东西嘛，也是意料之中。</p>
+<p>趁着有人要出OranMe的Web Only主机，就把博客迁过来了。</p>
+<!--more-->
+<p>要在本地推送内容更新远程服务器的文章，我第一时间想到了用WebHook。</p>
+<p>大致流程就是：</p>
+<p>本地推送分支-&gt;远程仓库触发WebHooks-&gt;Web服务器收到WebHooks并开始构建页面</p>
+<p>但是在Google上找的WebHook资料大多是GitHub的，可我用的是Coding的仓库.稍微摸索了一下，于是乎就有了这篇水文。</p>
+<h1 id="配置web服务器">配置Web服务器</h1>
+<h2 id="0x00-clone-仓库">0x00 Clone 仓库</h2>
+<p>开始之前，先把仓库的博客文件先Clone下来先,这里就不废话了。</p>
+<h2 id="0x01-git登录凭证">0x01 Git登录凭证</h2>
+<p>修改一下Git仓库配置文件，使其记住Git登录凭证。</p>
+<p>编辑<code>.git/config</code>加上这几行</p>
+<pre><code>[credential]  
+    helper = store
+</code></pre>
+<h3 id="重要">重要</h3>
+<p>随便加/改点东西然后Git Push，如果你什么都不想改，也可以直接强制推送一次。目的就是为了让Git记住你的登录凭证。</p>
+<pre><code class="language-Shell">git push origin master -f
+</code></pre>
+<h2 id="0x02-安装依赖">0x02 安装依赖</h2>
+<p>然后在博客目录里面安装依赖</p>
+<pre><code class="language-Shell">sudo npm i hexo-cli -g
+npm i
+</code></pre>
+<h2 id="0x03-安装webserver并启用ssl">0x03 安装WebServer并启用SSL</h2>
+<p>安装WebServer,这里安利一下Caddy，４条配置搞定大部分需求。</p>
+<p><s>用了都说好!</s></p>
+<pre><code class="language-Shell">sudo CADDY_TELEMETRY=on curl https://getcaddy.com | bash -s personal
+</code></pre>
+<p>编辑Caddy配置文件</p>
+<pre><code class="language-Shell">sudo vim /etc/caddy.conf
+</code></pre>
+<pre><code class="language-caddy">you domain
+{
+  log /path/to/hexo/caddy.log
+    gzip
+    root /path/to/hexo/public
+}
+</code></pre>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<blockquote>
+<p>上述配置文件中需要按照你的服务器信息进行修改</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>you domain 改为 你服务器的域名</li>
+<li>/path/to/hexo/ 改为 你服务器中Hexo的路径</li>
+</ul>
+</blockquote>
+<h3 id="创建systemd-service">创建Systemd service</h3>
+<p>编辑<code>/etc/systemd/system/caddy.service</code></p>
+<pre><code>[Unit]
+Description=Caddy HTTP/2 web server
+After=syslog.target
+After=network.target
+
+[Service]
+User=root
+Group=root
+LimitNOFILE=64000
+ExecStart=/usr/local/bin/caddy --conf=/etc/caddy.conf
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>这里将用户名指定成root主要是为了方便使用80和443端口。如果觉得不安全，可以参考<a href="https://blog.csdn.net/Becivells/article/details/52842019">这篇文章</a>。</p>
+<h3 id="激活systemd-service">激活Systemd service</h3>
+<pre><code class="language-Shell">sudo systemctl enable caddy.service
+</code></pre>
+<h3 id="绑定ip地址到域名">绑定IP地址到域名</h3>
+<p>这里的话，Google下吧。（懒）</p>
+<h3 id="获取ssl证书">获取SSL证书</h3>
+<pre><code class="language-Shell">/usr/local/bin/caddy --conf=/etc/caddy.conf
+</code></pre>
+<p>第一次运行的话，会提示输入邮箱。建议输入平时常用的，方便收到错误日志。当然也可以什么都不写直接回车。</p>
+<h4 id="ps注意">PS：注意</h4>
+<p>这里必须由有80，443端口使用权限的用户执行，否则无法申请证书。</p>
+<h1 id="配置服务器端webhooks">配置服务器端WebHooks</h1>
+<p>这里就进到正题了。</p>
+<h2 id="1x00创建webhooksjs以及deploysh">1x00创建webhooks.js以及deploy.sh</h2>
+<p>在用户目录下建一个<code>webhooks</code>目录，然后在里面创建一个<code>webhooks.js</code>文件。</p>
+<pre><code class="language-JavaScript">var http = require('http')
+var createHandler = require('coding-webhook-handler')
+var handler = createHandler({ path: '/', secret: 'secret' })
+
+function run_cmd(cmd, args, callback) {
+  var spawn = require('child_process').spawn;
+  var child = spawn(cmd, args);
+  var resp = &quot;&quot;;
+
+  child.stdout.on('data', function(buffer) { resp += buffer.toString(); });
+  child.stdout.on('end', function() { callback (resp) });
+}
+
+http.createServer(function (req, res) {
+  handler(req, res, function (err) {
+    res.statusCode = 404
+    res.end('no such location')
+  })
+}).listen(7777)
+
+handler.on('error', function (err) {
+  console.error('Error:', err.message)
+})
+
+handler.on('push', function (event) {
+  console.log('Received a push event for %s to %s',
+    event.payload.repository.name,
+    event.payload.ref);
+    run_cmd('sh', ['./deploy.sh',event.payload.repository.name], function(text){ console.log(text) });
+})
+
+
+</code></pre>
+<p>再创建<code>deploy.sh</code></p>
+<pre><code class="language-Shell">#!/bin/bash
+
+WEB_PATH='/path/to/hexo/'
+
+echo &quot;Start deployment&quot;
+cd $WEB_PATH
+echo &quot;pulling source code...&quot;
+git fetch 
+git reset --hard FETCH_HEAD
+hexo g
+echo &quot;Finished.&quot;
+
+</code></pre>
+<p>PS： 这里提到的方法也可以用于GitHub WebHooks。</p>
+<p>只需将<code>coding-webhook-handler</code>包，替换成<code>github-webhook-handler</code>，还有<code>webhooks.js</code>里面的<code>coding-webhook-handler</code>改成<code>github-webhook-handler</code>.就可以正常使用GitHub WebHooks了。</p>
+<h4 id="注意">注意</h4>
+<p>/path/to/hexo/ 改为 你服务器中Hexo的路径</p>
+<h2 id="1x01-安装并运行webhook-handler">1x01 安装并运行webhook-handler</h2>
+<p>确保系统里面有<code>pm2</code></p>
+<pre><code class="language-Shell">npm i -g pm2
+</code></pre>
+<p>下面<code>coding-webhook-handler</code>和<code>github-webhook-handler</code>2个二选一，<br>
+如果你用Coding那就安装第一个，你用GitHub那就安装第二个。</p>
+<pre><code class="language-bash">npm i coding-webhook-handler # Coding的webhooks-handler
+npm i github-webhook-handler # Github的webhooks-handler
+</code></pre>
+<p>然后运行一下</p>
+<pre><code class="language-bash">node webhooks.js
+</code></pre>
+<p>下面步骤完成之前不要退出</p>
+<p>接下来配置下远程仓库的WebHooks.</p>
+<h2 id="1x02-配置远程仓库的webhooks">1x02 配置远程仓库的WebHooks</h2>
+<p>在项目页面左下角找到&quot;项目设置&quot;，然后按下图操作</p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/Coding%E6%96%B0%E5%BB%BAWebHooks.webp" alt="Coding新建WebHooks" loading="lazy"></figure>
+<p><code>URL</code>：填写服务器的地址，如果上面那个<code>webhooks.js</code>没改过的话，就是http://你的服务器IP地址：7777</p>
+<p><code>令牌</code>：<code>webhooks.js</code>第三行的<code>secret:</code>后面的内容，建议自行更改，但<code>webhooks.js</code>和<br>
+CodingHooks的<code>secret:</code>内容必须统一。</p>
+<p><code>内容类型</code>：必须选application/json，Coding-webhook-handler只支持这种内容。</p>
+<p><code>内容格式</code>: 默认Coding就行。</p>
+<p>完了保存退出，然后按下Ping，不出意外状态那里就是绿色的勾勾了。</p>
+<p>关于更详细的Coding WebHooks资料可以翻下<a href="(https://open.coding.net/webhooks/)">官方文档</a>。</p>
+<h2 id="1x03-设置coding-webhook-handler开机自动启动">1x03 设置Coding-webhook-handler开机自动启动</h2>
+<p>需安装PM2,并设置PM2开机自动启动。</p>
+<pre><code class="language-Shell">npm i pm2 -g
+pm2 startup
+</code></pre>
+<p>然后设置Coding-webhook-handler开机自动启动。</p>
+<pre><code class="language-Shell">cd ~/webhooks
+pm2 start ./webhooks.js --name HexoBlog
+pm2 save
+</code></pre>
+<p>重启一下服务器，看看pm2是不是正常运行。</p>
+<p>重启后输入<code>pm2 list</code>看看有没有<code>webhooks</code>服务。</p>
+<pre><code class="language-Shell">pm2 list
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ webhooks           │ fork     │ 0    │ online    │ 0.4%     │ 51.1mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+
+</code></pre>
+<p>像这样就是正常运行了。</p>
+<h2 id="大功告成">大功告成</h2>
+<p>现在在本地推送篇文章上去，一般的话过十几秒Web服务器就构建完成了。</p>
+<p>再也不用在Web服务器手动部署了。</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/huaji.webp" alt="qed" loading="lazy"></figure>
+<p>对了，如果之前<a href="https://blog.arn0.org/post/%E8%85%BE%E8%AE%AF%E4%BA%91CI%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAHexo/">设置过CI</a>，并且部署目标和触发WebHooks的仓库是同一个的话，记得关掉。不然的话WebHooks就会被重复触发。(本地提交触发１次，CI部署触发１次。)</p>
+<p>Coding的话，反选掉&quot;代码更新时自动执行&quot;就行。<br>
+<img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/HexoCL_Disable.webp" alt="如图" loading="lazy"></p>
+<blockquote>
+<p>2020年3月5日更新：</p>
+</blockquote>
+<blockquote>
+<p>后来发现Coding Page搬到新加坡了，国外访问速度好了不少。</p>
+</blockquote>
+<blockquote>
+<p>但国内就......<br>
+<img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master//static_files/githubPageSpeenOnChina.webp" alt="站长工具测速" loading="lazy"></p>
+</blockquote>
+<hr>
+参考链接
+<p><a href="https://juejin.im/post/5cab1a9ee51d452b1162526a">都9012年了,你还在手动部署代码吗</a></p>
+<p><a href="https://blog.mutoe.com/2017/deploy-hexo-website-to-self-server/">将 Hexo 博客发布到自己的服务器上</a></p>
+<p><a href="https://www.jianshu.com/p/b407f814a397">PM2设置开机自启动</a></p>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+        
+
+        
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script type="application/javascript" src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script type="application/javascript">
+
+var options = {
+  shortname: 'jsuses-blog',
+  apikey: 'c7Jz7qwa2Rxu1b59XjtpYyALBsVKlyLRoKc46jF4Bh6LMDTVFSjfuKjnfcWnBI3U',
+}
+if ('https://disqusjs-proxy.arn0.now.sh/') {
+  options.api = 'https://disqusjs-proxy.arn0.now.sh/'
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+        
+      
+
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li><a href="#%E9%85%8D%E7%BD%AEweb%E6%9C%8D%E5%8A%A1%E5%99%A8">配置Web服务器</a>
+<ul>
+<li><a href="#0x00-clone-%E4%BB%93%E5%BA%93">0x00 Clone 仓库</a></li>
+<li><a href="#0x01-git%E7%99%BB%E5%BD%95%E5%87%AD%E8%AF%81">0x01 Git登录凭证</a>
+<ul>
+<li><a href="#%E9%87%8D%E8%A6%81">重要</a></li>
+</ul>
+</li>
+<li><a href="#0x02-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96">0x02 安装依赖</a></li>
+<li><a href="#0x03-%E5%AE%89%E8%A3%85webserver%E5%B9%B6%E5%90%AF%E7%94%A8ssl">0x03 安装WebServer并启用SSL</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BAsystemd-service">创建Systemd service</a></li>
+<li><a href="#%E6%BF%80%E6%B4%BBsystemd-service">激活Systemd service</a></li>
+<li><a href="#%E7%BB%91%E5%AE%9Aip%E5%9C%B0%E5%9D%80%E5%88%B0%E5%9F%9F%E5%90%8D">绑定IP地址到域名</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96ssl%E8%AF%81%E4%B9%A6">获取SSL证书</a>
+<ul>
+<li><a href="#ps%E6%B3%A8%E6%84%8F">PS：注意</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFwebhooks">配置服务器端WebHooks</a>
+<ul>
+<li><a href="#1x00%E5%88%9B%E5%BB%BAwebhooksjs%E4%BB%A5%E5%8F%8Adeploysh">1x00创建webhooks.js以及deploy.sh</a><br>
+*
+<ul>
+<li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
+</ul>
+</li>
+<li><a href="#1x01-%E5%AE%89%E8%A3%85%E5%B9%B6%E8%BF%90%E8%A1%8Cwebhook-handler">1x01 安装并运行webhook-handler</a></li>
+<li><a href="#1x02-%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84webhooks">1x02 配置远程仓库的WebHooks</a></li>
+<li><a href="#1x03-%E8%AE%BE%E7%BD%AEcoding-webhook-handler%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8">1x03 设置Coding-webhook-handler开机自动启动</a></li>
+<li><a href="#%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90">大功告成</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://blog.arn0.org/media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+    <script src="https://blog.arn0.org/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+  
+    
+  
+</body>
+
+</html>

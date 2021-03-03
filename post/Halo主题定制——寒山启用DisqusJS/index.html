@@ -1,0 +1,841 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Halo主题定制——寒山启用DisqusJS - Arn0&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.arn0.org/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://blog.arn0.org/media/css/tailwind.css">
+<link rel="stylesheet" href="https://blog.arn0.org/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Halo主题定制——寒山启用DisqusJS - Arn0&#39;s Blog - Atom Feed" href="https://blog.arn0.org/atom.xml">
+
+    
+
+  <meta name="description" content="寒山是我迁移到Halo后用的第二款主题（第一款当然就是Halo自带的Anatole啦），也是我目前为止最满意的一款主题。只是美中不足的是这款主题不支持DisqusJS，有点不习惯，于是乎就搞上了这玩意。
+
+这里说的主题是寒山的v1.4.3
+..." />
+  <meta property="og:title" content="Halo主题定制——寒山启用DisqusJS - Arn0&#39;s Blog">
+  <meta property="og:description" content="寒山是我迁移到Halo后用的第二款主题（第一款当然就是Halo自带的Anatole啦），也是我目前为止最满意的一款主题。只是美中不足的是这款主题不支持DisqusJS，有点不习惯，于是乎就搞上了这玩意。
+
+这里说的主题是寒山的v1.4.3
+..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://blog.arn0.org/post/Halo主题定制——寒山启用DisqusJS/" />
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/img/disqusjs_and_halo.webp">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="Halo主题定制——寒山启用DisqusJS - Arn0&#39;s Blog">
+  <meta name="twitter:description" content="寒山是我迁移到Halo后用的第二款主题（第一款当然就是Halo自带的Anatole啦），也是我目前为止最满意的一款主题。只是美中不足的是这款主题不支持DisqusJS，有点不习惯，于是乎就搞上了这玩意。
+
+这里说的主题是寒山的v1.4.3
+...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://blog.arn0.org/post/Halo主题定制——寒山启用DisqusJS/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+    <link rel="stylesheet" href="https://blog.arn0.org/media/css/prism-atom-dark.css">
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://blog.arn0.org" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      Arn0&#39;s Blog
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          Halo主题定制——寒山启用DisqusJS
+        </h1>
+        
+          <img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/img/disqusjs_and_halo.webp" alt="Halo主题定制——寒山启用DisqusJS" class="block w-full mb-8">
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2020-04-12 · 19 min read</div>
+          
+            <a href="https://blog.arn0.org/tag/c40xLeSGKX/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Halo
+            </a>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <p>寒山是我迁移到Halo后用的第二款主题（第一款当然就是Halo自带的Anatole啦），也是我目前为止最满意的一款主题。只是美中不足的是这款主题不支持DisqusJS，有点不习惯，于是乎就搞上了这玩意。</p>
+<!--more-->
+<p>这里说的主题是寒山的<a href="https://github.com/halo-dev/halo-theme-hshan/releases/download/v1.4.3/hshan.zip">v1.4.3</a></p>
+<p>项目主页在<a href="https://github.com/halo-dev/halo-theme-hshan">这里</a></p>
+<h2 id="首先为评论插件创建dsqjs对象">首先为评论插件创建dsqjs对象</h2>
+<p>将<code>module/comment.ftl</code>原本的<code>&lt;script&gt;</code>和<code>&lt;/script&gt;</code>标签之间的内容全部注释或者删掉，然后创建<code>loadDisqusJS()</code>函数，并通过<code>setTimeout</code>延时调用<code>loadDisqusJS()</code>函数。</p>
+<p>修改后如下</p>
+<pre><code class="language-javascript">&lt;#macro comment target,type&gt;
+	&lt;#if !post.disallowComment!false&gt;
+	&lt;!-- DisqusJS jsDelivr --&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css&quot;&gt;
+	&lt;script src=&quot;https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqus.js&quot;&gt;&lt;/script&gt;
+		&lt;script&gt;
+		function loadDisqusJS() {
+			var dsqjs = new DisqusJS({
+				shortname: '',
+				siteName: '',
+				identifier: document.location.origin + document.location.pathname + document.location.search,
+				url: document.location.origin + document.location.pathname + document.location.search,
+				title: document.title,
+				api: '',
+				apikey: '',
+				admin: '',
+				adminLabel: ''
+				});
+			}
+        	setTimeout(function(){ loadDisqusJS(); }, 2000);
+		&lt;/script&gt;
+      	&lt;div id=&quot;disqus_thread&quot; style=&quot;margin: 30px;&quot;&gt;&lt;/div&gt;
+	&lt;/#if&gt;
+&lt;/#macro&gt;
+</code></pre>
+<p>其中<code>disqus_thread</code>容器的位置决定了Disqus/DisqusJS出现的位置。</p>
+<p>至于<code>margin</code>嘛，可以换其他数值，数值越大，评论框旁边的空隙就越大，评论框自然就越小，可以通过这种办法控制评论框大小。</p>
+<p>这上面的代码还引入了DisqusJS的资源，不过这些没啥介绍的，我就不多说了。</p>
+<h3 id="下面是需要配置的内容">下面是需要配置的内容</h3>
+<p>这个我是直接在<a href="https://github.com/SukkaW/DisqusJS">DisqusJS项目主页</a>剽窃的（小声）</p>
+<p><strong>shortname</strong> <code>{string}</code></p>
+<ul>
+<li>你的 Disqus Forum 的 shortname，你可以在 <a href="https://disqus.com/admin/settings/general/">Disqus Admin - Settings - General - Shortname</a> 获取你的 shortname</li>
+<li><strong>必须</strong>，无默认值</li>
+</ul>
+<p><strong>siteName</strong> <code>{string}</code></p>
+<ul>
+<li>你站点的名称，将会显示在「评论基础模式」的 header 中；该配置应该和 <a href="https://disqus.com/admin/settings/general/">Disqus Admin - Settings - General - Website Name</a> 一致</li>
+<li>非必须，无默认值</li>
+</ul>
+<p><strong>identifier</strong> <code>{string}</code></p>
+<ul>
+<li>当前页面的 identifier，用来区分不同页面</li>
+<li><strong>建议</strong>，默认值为 <code>document.location.origin + document.location.pathname + document.location.search</code></li>
+</ul>
+<p><strong>url</strong> <code>{string}</code></p>
+<ul>
+<li>当前页面的 URL，Disqus 的爬虫会爬取该 URL 获取页面相关信息</li>
+<li><strong>建议</strong>，默认值为 <code>document.location.origin + document.location.pathname + document.location.search</code></li>
+</ul>
+<p><strong>title</strong> <code>{string}</code></p>
+<ul>
+<li>当前页面的标题，如果没有设置默认为当前页面的标题。当页面标题中有其他信息（比如站点名称）而不想在 Disqus 中展示时，可以设置此项。</li>
+<li>非必须，默认值为 <code>document.title</code></li>
+</ul>
+<p><strong>api</strong> <code>{string}</code></p>
+<ul>
+<li>DisqusJS 请求的 API Endpoint，通常情况下你应该配置一个 Disqus API 的反代并填入反代的地址。你也可以直接使用 DISQUS 官方 API 的 Endpoint <code>https://disqus.com/api/</code>，或是使用我搭建的 Disqus API 反代 Endpoint <code>https://disqus.skk.moe/disqus/</code>。如有必要可以阅读关于搭建反代的 <a href="https://github.com/SukkaW/DisqusJS#%E8%B0%83%E8%AF%95%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8--%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3">相关内容</a></li>
+<li><strong>建议</strong>，默认值为 <code>https://disqus.skk.moe/disqus/</code></li>
+</ul>
+<p><strong>apikey</strong> <code>{string || Array}</code></p>
+<ul>
+<li>DisqusJS 向 API 发起请求时使用的 API Key，你应该在配置 Disqus Application 时获取了 API Key</li>
+<li>DisqusJS 支持填入一个 包含多个 API Key 的 Array，在每次请求时会随机使用其中一个；如果你只填入一个 API Key，可以填入 string 或 Array。</li>
+<li><strong>必填</strong>，无默认值</li>
+</ul>
+<hr>
+<p>以下配置和 Disqus Moderator Badge 相关，缺少一个都不会显示 Badge</p>
+<p><strong>admin</strong> <code>{string}</code></p>
+<ul>
+<li>你的站点的 Disqus Moderator 的用户名（也就是你的用户名）。你可以在 <a href="https://disqus.com/home/settings/account/">Disqus - Settings - Account - Username</a> 获取你的 Username</li>
+<li>非必须，无默认值</li>
+</ul>
+<p><strong>adminLabel</strong> <code>{string}</code></p>
+<ul>
+<li>你想显示在 Disqus Moderator Badge 中的文字。该配置应和 <a href="https://disqus.com/admin/settings/community/">Disqus Admin - Settings - Community - Moderator Badge Text</a> 相同</li>
+<li>非必须，无默认值</li>
+</ul>
+<hr>
+<p>你看，到这里基本上是可以使用了。<br>
+<img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/Disqus_Done.webp" alt="Disqus_Done" loading="lazy"></p>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/Disqus_sun_Done.webp" alt="Disqus_Done" loading="lazy"></figure>
+<p>但如果你开启了全站PJAX，你会惊奇的发现，评论框在切换页面时并不会刷新。怎么办呢？<s>难道只能关掉PJAX了吗？</s></p>
+<h2 id="pjax支持">PJAX支持</h2>
+<p>我们可以在<code>module/script.ftl</code>增加刷新的内容<br>
+找到<code>// 重新加载 评论</code>那一部分代码，将以下内容全部注释或删掉</p>
+<pre><code class="language-javascript">// 重新加载 评论
+$('script[data-pjax-comment]').each(function () {
+	$(this).parent().append($(this).remove());
+});
+
+if ($(&quot;#page&quot;).find('.post-page').length &gt; 0) {
+	window.removeEventListener('scroll', post.tocScroll, false);
+</code></pre>
+<p>上面这些代码原本是为原生评论系统服务的，目的就是为了在PJAX刷新时可以自动重载评论框。</p>
+<p>当然我们使用DisqusJS的话那就用不着上面这些代码了，直接调用一个函数就够了</p>
+<pre><code class="language-javascript">loadDisqusJS();
+</code></pre>
+<p>修改后的<code>module/script.ftl</code>如下</p>
+<pre><code class="language-html">&lt;#include &quot;mermaid.ftl&quot;&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;${theme_base!}/assets/media/scripts/plugins.min.js?ver=${.now?long}&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;${theme_base!}/assets/media/scripts/main.min.js?ver=${.now?long}&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js&quot;&gt;&lt;/script&gt;
+&lt;#if settings.auto_night_mode&gt;
+    &lt;script src=&quot;//cdn.jsdelivr.net/gh/hshanx/halo-comment-normal@v1.0.0/dist/halo-comment.min.js&quot;&gt;&lt;/script&gt;
+&lt;#else&gt;
+    &lt;script src=&quot;${options.comment_internal_plugin_js!'//cdn.jsdelivr.net/gh/hshanx/halo-comment-normal@v1.0.0/dist/halo-comment.min.js'}&quot;&gt;&lt;/script&gt;
+&lt;/#if&gt;
+
+&lt;#if settings.Aplayer?? &amp;&amp; settings.Aplayer != ''&gt;
+    &lt;script src=&quot;//cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;//cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js&quot;&gt;&lt;/script&gt;
+&lt;#else&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        // Smooth scroll to anchors
+        var scroll = new SmoothScroll('[data-scroll]', {
+            speed: 300,
+            updateURL: false,
+        })
+    &lt;/script&gt;
+&lt;/#if&gt;
+
+&lt;#-- 暗夜模式 --&gt;
+&lt;#if settings.auto_night_mode!true&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var nightModeStartTime = ${settings.night_mode_start_time?default('18')};
+        var nightModeEndTime = ${settings.night_mode_end_time?default('6')};
+    &lt;/script&gt;
+    &lt;script src=&quot;${theme_base!}/assets/media/scripts/night-mode.min.js?ver=${.now?long}&quot;&gt;&lt;/script&gt;
+&lt;/#if&gt;
+
+&lt;#if settings.visit_statistics!false&gt;
+    &lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
+&lt;/#if&gt;
+
+&lt;#-- katex--&gt;
+&lt;#if settings.enabled_mathjax!true&gt;
+    &lt;script defer src=&quot;//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script defer src=&quot;//cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js&quot;
+            onload=&quot;if (document.getElementById('post-content') ) {renderMathInElement(document.getElementById('post-content'),katex_config)}&quot;&gt;&lt;/script&gt;
+&lt;/#if&gt;
+
+&lt;#-- gallery  --&gt;
+&lt;#--&lt;script src=&quot;//cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js&quot;&gt;&lt;/script&gt;--&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js&quot;&gt;&lt;/script&gt;
+&lt;!--图片预览插件--&gt;
+&lt;script data-pjax-viewer src=&quot;//cdn.jsdelivr.net/npm/viewerjs@1.5.0/dist/viewer.min.js&quot;&gt;&lt;/script&gt;
+&lt;script data-gallery src=&quot;${theme_base!}/assets/media/scripts/gallery.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;div class=&quot;qr-code-wrap&quot; role=&quot;dialog&quot;&gt;
+    &lt;div role=&quot;document&quot; class=&quot;qr-code&quot; style=&quot;transform-origin: 201px 294px;&quot;&gt;
+        &lt;span class=&quot;closinglayer&quot;&gt;&lt;svg viewBox=&quot;64 64 896 896&quot; focusable=&quot;false&quot; class=&quot;&quot; data-icon=&quot;close&quot; width=&quot;1em&quot;
+                                        height=&quot;1em&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;&gt;&lt;path
+                        d=&quot;M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;
+        &lt;/span&gt;
+        &lt;div style=&quot;text-align: center;padding: 10px 0;&quot;&gt;
+            &lt;#if settings.QR_code_zfb??&gt;
+                &lt;img class=&quot;qr_code_zfb&quot; src=&quot;${settings.QR_code_zfb!}&quot;/&gt;
+            &lt;/#if&gt;
+            &lt;#if settings.QR_code_wx??&gt;
+                &lt;img class=&quot;qr_code_wx&quot; src=&quot;${settings.QR_code_wx!}&quot;/&gt;
+            &lt;/#if&gt;
+        &lt;/div&gt;
+        &lt;#if settings.QR_code_zfb?? &amp;&amp; settings.QR_code_wx??&gt;
+            &lt;div class=&quot;switch-btn&quot;&gt;
+                &lt;span class=&quot;zfb-btn&quot;&gt;支付宝&lt;/span&gt;
+                &lt;span class=&quot;wx-btn&quot;&gt;微信&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/#if&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;#--目录--&gt;
+&lt;#if settings.post_toc!true&gt;
+    &lt;script src=&quot;//cdn.jsdelivr.net/npm/tocbot@4.4.2/dist/tocbot.min.js&quot;&gt;&lt;/script&gt;
+&lt;/#if&gt;
+
+&lt;script type=&quot;application/javascript&quot;&gt;
+    var displayReadProgress = &lt;#if (settings.open_read_progress)??&gt;${settings.open_read_progress?c}&lt;#else&gt;true&lt;/#if&gt;;
+&lt;/script&gt;
+&lt;script src=&quot;${theme_base!}/assets/media/scripts/post.min.js?ver=${.now?long}&quot;&gt;&lt;/script&gt;
+&lt;style&gt;
+    /* 阅读进度的进度条颜色 */
+    #readProgress .read-progress-bar {
+        background: ${settings.progress_color?default('#2474b5')} !important;
+        height: 0.1875rem;
+    }
+&lt;/style&gt;
+
+
+&lt;#if settings.TimeStatistics??&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        // 建站时间统计
+        function show_date_time() {
+            if ($(&quot;#span_dt_dt&quot;).length &gt; 0) {
+                window.setTimeout(&quot;show_date_time()&quot;, 1000);
+                BirthDay = new Date(&quot;${settings.TimeStatistics!}&quot;);
+                today = new Date();
+                timeold = (today.getTime() - BirthDay.getTime());
+                sectimeold = timeold / 1000;
+                secondsold = Math.floor(sectimeold);
+                msPerDay = 24 * 60 * 60 * 1000;
+                e_daysold = timeold / msPerDay;
+                daysold = Math.floor(e_daysold);
+                e_hrsold = (e_daysold - daysold) * 24;
+                hrsold = Math.floor(e_hrsold);
+                e_minsold = (e_hrsold - hrsold) * 60;
+                minsold = Math.floor((e_hrsold - hrsold) * 60);
+                seconds = Math.floor((e_minsold - minsold) * 60);
+                span_dt_dt.innerHTML = daysold + &quot;天&quot; + hrsold + &quot;小时&quot; + minsold + &quot;分&quot; + seconds + &quot;秒&quot;;
+            }
+        }
+
+        show_date_time();
+    &lt;/script&gt;
+&lt;/#if&gt;
+
+&lt;#if settings.Custom_js_foot??&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        ${settings.Custom_js_foot!}
+    &lt;/script&gt;
+&lt;/#if&gt;
+
+&lt;#if settings.Custom_js_foot_src??&gt;
+    ${settings.Custom_js_foot_src!}
+&lt;/#if&gt;
+
+&lt;#if settings.pjax_enabled!false&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css&quot;&gt;
+
+    &lt;script&gt;
+        var socialDisabled = '${settings.share_disabeld?default('')}';
+        var pjax = new Pjax({
+            elements: 'a[href]:not([href^=&quot;#&quot;]):not([data-not-pjax]), form', // default is &quot;a[href], form[action]&quot;
+            cacheBust: false,
+            debug: false,
+            selectors: [
+                'title',
+                '#page'
+            ]
+        });
+
+        //在Pjax请求开始后触发
+        document.addEventListener('pjax:send', function () {
+            NProgress.start();
+        });
+
+        //在Pjax请求完成后触发
+        document.addEventListener('pjax:complete', function (e) {
+            NProgress.done();
+
+            // 加载相册
+            if ($(&quot;#page&quot;).find('.photos-page').length &gt; 0) {
+                photo.loadGallery();
+                // $('script[data-pjax-viewer]').each(function () {
+                //     $(this).remove()
+                // });
+            }
+
+            han.initLazyLoad();
+            // 整个页面延迟加载
+            han.lazyLoad();
+
+            // card 延迟加载
+            han.lazyLoadCardItem()
+
+            //重载
+            if (typeof _hmt !== 'undefined') {
+                // support 百度统计
+                _hmt.push(['_trackPageview', location.pathname + location.search]);
+            }
+            if (typeof ga !== 'undefined') {
+                // support google analytics
+                ga('send', 'pageview', location.pathname + location.search);
+            }
+
+            // 菜单高亮
+            han.highlightMenu();
+
+            // 小屏幕菜单隐藏
+            han.makeMenuInvisible();
+
+            //  关闭搜索框
+            $(&quot;.search-popup&quot;).velocity(&quot;transition.expandOut&quot;, { duration: 300 });
+
+            // 重新加载 评论
+          	loadDisqusJS();
+
+                // 赞赏
+                post.appreciate();
+
+                // 初始化toc
+                post.initToc()
+
+                // 删除文章第一个 &lt;ul&gt;
+                post.removeFirstUL()
+
+                // 目录事件
+                post.scrollTocFixed();
+
+                // 搞一个阅读进度，为了提高准确度，数据都要实时获取
+                post.readProgress();
+
+                // 代码块
+                post.loadHighlight();
+
+                // 按钮事件
+                post.appreciateModel()
+
+                // 分享
+                post.toggleSocialShare()
+
+                // 图片预览
+                post.initViewer()
+
+                // 目录悬浮时间
+                post.tocHover();
+
+
+                try {
+                    post.shareIcon()
+
+                    if (renderMathInElement &amp;&amp; typeof renderMathInElement !== 'undefined') {
+                        renderMathInElement(document.getElementById('post-content'), katex_config);
+                    }
+
+                    if (mermaid &amp;&amp; typeof mermaid !== 'undefined') {
+                        mermaid.initialize();
+                    }
+                } catch (e) {
+                    console.log(&quot;error&quot;);
+                }
+                // 刷新
+                han.refreshLazyLoad();
+            } else {
+                han.initLazyLoad()
+            }
+
+
+        });
+
+        document.addEventListener('pjax:end', function () {
+
+        });
+
+        //Pjax请求失败后触发，请求对象将作为一起传递event.options.request
+        document.addEventListener('pjax:error', function () {
+            NProgress.done();
+            bar('系统出现问题，请手动刷新一次', '3000');
+        });
+    &lt;/script&gt;
+&lt;/#if&gt;
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+    //console.clear();
+    console.log(&quot;%c 有朋自远方来, 不亦说乎.&quot;, &quot;background:#24272A; color:#ffffff&quot;, &quot;&quot;);
+    console.log(&quot;%c Github %c&quot;, &quot;background:#24272A; color:#ffffff&quot;, &quot;&quot;, &quot;https://github.com/hshanx&quot;);
+    console.log(&quot;%c 版本号: %c&quot;, &quot;background:#24272A; color:#ffffff&quot;, &quot;&quot;, &quot;1.4.2&quot;);
+&lt;/script&gt;
+
+
+</code></pre>
+<p>这样，PJAX只需通过重新加载<code>loadDisqusJS()</code>函数，就可以在加载新页面时刷新评论框。</p>
+<p>当然，我上面说的“重新加载”，并不是真正意义上的重载。JavaScript并没有真正意义上的重载函数。我上面的操作主要是用<code>loadDisqusJS()</code>来覆盖<code>loadDisqusJS()</code>，即后面的会覆盖前面的函数。老实说其实还有其他更优雅的方法。但是对于这种需求，上面的方案就足够了，为了避免跑题这里就不展开说了。</p>
+<h3 id="嘛还有个小bug">嘛，还有个小Bug</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/DisqusJS_Night.webp" alt="DisqusJS_Night" loading="lazy"><br>
+<s>我只是演示而已，蝉時雨大佬应该不会介意吧(害怕.webp)。</s></p>
+<p>标签的文字和背景颜色融在一起，导致评论里啥都看不清了，这很显然是不行的。解决办法也很简单，在切换模式后重载Disqus就好，我们接下来就解决这个问题。
+<h4 id="修改night-modejs">修改night-mode.js</h4>
+<p>在<code>assets/scripts/night-mode.js</code>里面将<code>nightMode.click</code>函数里面这些代码注释或者删掉，这些代码是为Halo原生评论系统服务的，目的是为了在切换模式时重载评论框避免上面的情况发生。</p>
+<pre><code class="language-javascript">if (typeof renderComment === 'function') {
+renderComment();
+}
+</code></pre>
+<p>基于上面的代码逻辑，我们用DisqusJS的话，可以做得更简单，只需换成</p>
+<pre><code class="language-javascript">// 重新加载DisqusJS,延时500ms
+setTimeout(function(){ loadDisqusJS(); }, 500);
+</code></pre>
+<p>即可。</p>
+<p>修改后的<code>night-mode.js</code>如下</p>
+<pre><code class="language-javascript">var nightModeId = 'nightMode';
+
+var darkMode = {
+    autoNightMode: function () {
+
+        var nightModes = $('.night-mode');
+        var day = new Date();
+        var D = day.getHours();
+        var isNightMode = hanUtils.getLocalStorage(nightModeId);
+        if (D &lt;= nightModeStartTime &amp;&amp; D &gt; nightModeEndTime) {
+            // 白天
+            if (isNightMode === true) {
+                // 是暗黑模式
+                darkMode.changeNightMode(nightModes);
+                return;
+            }
+            darkMode.changeLightMode(nightModes);
+        } else {
+            // 晚上
+            if (isNightMode === false) {
+                // 不是暗黑模式
+                darkMode.changeLightMode(nightModes);
+                return;
+            }
+            darkMode.changeNightMode(nightModes);
+        }
+        if (typeof renderComment === 'function') {
+            renderComment();
+        }
+    },
+
+    changeLightMode: function (nightModes) {
+        $(document.body).removeClass('night');
+        for (var i = 0; i &lt; nightModes.length; i++) {
+            var nightMode = $(nightModes[i]);
+            nightMode.addClass('fa-moon-o');
+            nightMode.removeClass('fa-lightbulb-o');
+        }
+        hanUtils.setLocalStorage(nightModeId, false)
+    },
+
+    changeNightMode: function (nightModes) {
+        $(document.body).addClass('night');
+        for (var i = 0; i &lt; nightModes.length; i++) {
+            var nightMode = $(nightModes[i]);
+            nightMode.addClass('fa-lightbulb-o');
+            nightMode.removeClass('fa-moon-o');
+        }
+        hanUtils.setLocalStorage(nightModeId, true)
+    },
+
+    nightModeFuc: function () {
+        var nightModes = $('.night-mode');
+        if (!nightModes) {
+            return;
+        }
+        for (var i = 0; i &lt; nightModes.length; i++) {
+            var nightMode = $(nightModes[i]);
+            darkMode.doFuncNightMode(nightMode);
+        }
+
+    },
+
+    doFuncNightMode: function (nightMode) {
+        var nightModeBtn = $('.night-mode');
+        if ($(document.body).hasClass('night')) {
+            nightModeBtn.addClass('fa-lightbulb-o');
+            nightModeBtn.removeClass('fa-moon-o');
+        } else {
+            nightModeBtn.addClass('fa-moon-o');
+            nightModeBtn.removeClass('fa-lightbulb-o');
+        }
+
+
+        nightMode.click(function (e) {
+            if (nightMode.hasClass('fa-moon-o')) {
+                $(document.body).addClass('night');
+                nightModeBtn.addClass('fa-lightbulb-o');
+                nightModeBtn.removeClass('fa-moon-o');
+                hanUtils.setLocalStorage(nightModeId, true);
+
+            } else if (nightMode.hasClass('fa-lightbulb-o')) {
+                $(document.body).removeClass('night');
+                nightModeBtn.addClass('fa-moon-o');
+                nightModeBtn.removeClass('fa-lightbulb-o');
+
+                hanUtils.setLocalStorage(nightModeId, false);
+            }
+            $(document.body).removeClass('sidebar-opened');
+                                              
+			// 重新加载DisqusJS
+			setTimeout(function(){ loadDisqusJS(); }, 500);
+        })
+    }
+}
+
+$(function () {
+// 自动暗黑模式
+    darkMode.autoNightMode();
+
+// 暗黑模式
+    darkMode.nightModeFuc();
+
+})
+
+</code></pre>
+<p>修改好后记得<a href="https://tool.oschina.net/jscompress">压缩代码</a>并覆盖<code>night-mode.min.js</code>里面的内容，不然是不会生效的。因为页面引入的是<code>night-mode.min.js</code>，而不是<code>night-mode.js</code>。<code>night-mode.js</code>只是编辑用的而已。</p>
+<h3 id="保存后刷新就好了">保存后刷新就好了</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/DisqusJS_Night_Done.webp" alt="DisqusJS_Night_Done" loading="lazy"><br>
+<s>也是演示</s></p>
+<h5 id="为什么是500毫秒">为什么是500毫秒?</h5>
+<p>主要是为了在页面变色完成之前避免遇到DisqusJS抢先加载的情况，当然这里的时间可以调得更短，或者用事件检测器也行。还有开头<code>module/comment.ftl</code>那里的<code>setTimeout(function(){ loadDisqusJS(); }, 2000);</code>也是为了应对这种情况。</p>
+<h2 id="关于disqusjs的夜间模式">关于DisqusJS的夜间模式</h2>
+<p>又是一个大坑，过几天等我有时间再填吧(咕)。<br>
+<img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/DisqusJS_unDone.webp" alt="DisqusJS_unDone" loading="lazy"></p>
+<p>现在DisqusJS的功能是齐全的，包括Disqus的夜间模式。但美中不足的就是DisqusJS的夜间模式还是不行，目前还没有解决办法。暂时只能先禁用夜间模式。</p>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+        
+
+        
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script type="application/javascript" src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script type="application/javascript">
+
+var options = {
+  shortname: 'jsuses-blog',
+  apikey: 'c7Jz7qwa2Rxu1b59XjtpYyALBsVKlyLRoKc46jF4Bh6LMDTVFSjfuKjnfcWnBI3U',
+}
+if ('https://disqusjs-proxy.arn0.now.sh/') {
+  options.api = 'https://disqusjs-proxy.arn0.now.sh/'
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+        
+      
+
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E9%A6%96%E5%85%88%E4%B8%BA%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6%E5%88%9B%E5%BB%BAdsqjs%E5%AF%B9%E8%B1%A1">首先为评论插件创建dsqjs对象</a>
+<ul>
+<li><a href="#%E4%B8%8B%E9%9D%A2%E6%98%AF%E9%9C%80%E8%A6%81%E9%85%8D%E7%BD%AE%E7%9A%84%E5%86%85%E5%AE%B9">下面是需要配置的内容</a></li>
+</ul>
+</li>
+<li><a href="#pjax%E6%94%AF%E6%8C%81">PJAX支持</a>
+<ul>
+<li><a href="#%E5%98%9B%E8%BF%98%E6%9C%89%E4%B8%AA%E5%B0%8Fbug">嘛，还有个小Bug</a>
+<ul>
+<li><a href="#%E4%BF%AE%E6%94%B9night-modejs">修改night-mode.js</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BF%9D%E5%AD%98%E5%90%8E%E5%88%B7%E6%96%B0%E5%B0%B1%E5%A5%BD%E4%BA%86">保存后刷新就好了</a><br>
+*
+<ul>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF500%E6%AF%AB%E7%A7%92">为什么是500毫秒?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%85%B3%E4%BA%8Edisqusjs%E7%9A%84%E5%A4%9C%E9%97%B4%E6%A8%A1%E5%BC%8F">关于DisqusJS的夜间模式</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://blog.arn0.org/media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+    <script src="https://blog.arn0.org/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+  
+    
+  
+</body>
+
+</html>

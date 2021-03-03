@@ -1,0 +1,367 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Make快速提交代码到远程仓库 - Arn0&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.arn0.org/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://blog.arn0.org/media/css/tailwind.css">
+<link rel="stylesheet" href="https://blog.arn0.org/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Make快速提交代码到远程仓库 - Arn0&#39;s Blog - Atom Feed" href="https://blog.arn0.org/atom.xml">
+
+    
+
+  <meta name="description" content="用CI自动构建Hexo的同学有没有想过，一行命令就可以让你在保存文章后直接将内容推到仓库里面？
+如今现在这几行代码可以实现你这个梦想。来试一下吧，这几行代码永久免费!!!(狗头滑稽)
+
+创建Makefile
+创建Makefile，存到Hex..." />
+  <meta property="og:title" content="Make快速提交代码到远程仓库 - Arn0&#39;s Blog">
+  <meta property="og:description" content="用CI自动构建Hexo的同学有没有想过，一行命令就可以让你在保存文章后直接将内容推到仓库里面？
+如今现在这几行代码可以实现你这个梦想。来试一下吧，这几行代码永久免费!!!(狗头滑稽)
+
+创建Makefile
+创建Makefile，存到Hex..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://blog.arn0.org/post/Make快速提交代码到远程仓库/" />
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/code_push_to_coding.webp">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="Make快速提交代码到远程仓库 - Arn0&#39;s Blog">
+  <meta name="twitter:description" content="用CI自动构建Hexo的同学有没有想过，一行命令就可以让你在保存文章后直接将内容推到仓库里面？
+如今现在这几行代码可以实现你这个梦想。来试一下吧，这几行代码永久免费!!!(狗头滑稽)
+
+创建Makefile
+创建Makefile，存到Hex...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://blog.arn0.org/post/Make快速提交代码到远程仓库/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+    <link rel="stylesheet" href="https://blog.arn0.org/media/css/prism-atom-dark.css">
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://blog.arn0.org" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      Arn0&#39;s Blog
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          Make快速提交代码到远程仓库
+        </h1>
+        
+          <img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/code_push_to_coding.webp" alt="Make快速提交代码到远程仓库" class="block w-full mb-8">
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2019-12-26 · 2 min read</div>
+          
+            <a href="https://blog.arn0.org/tag/QYt9yoSyaR/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Git
+            </a>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <p>用CI自动构建Hexo的同学有没有想过，一行命令就可以让你在保存文章后直接将内容推到仓库里面？<br>
+如今现在这几行代码可以实现你这个梦想。来试一下吧，这几行代码永久免费!!!(狗头滑稽)</p>
+<!--more-->
+<h2 id="创建makefile">创建Makefile</h2>
+<p>创建Makefile，存到Hexo项目的根目录。</p>
+<p>添加这几行代码进去，保存。</p>
+<pre><code class="language-makefile">up:
+                git add _config.yml source/* themes/next/_config.yml Makefile source/*
+                git commit -m &quot;update blog&quot;
+                git push origin master
+sync:
+                sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
+                cnpm i
+                sudo cnpm install -g hexo-cli --ignore-scripts
+</code></pre>
+<h2 id="再设置一下git免密登录">再设置一下Git免密登录</h2>
+<p>（方法有很多，我推荐用SSH方式）</p>
+<p>在<a href="https://help.coding.net/docs/project/features/ssh.html">Coding官方文档</a>借用几句话+1张图片</p>
+<h3 id="打开命令行终端输入">打开命令行终端输入</h3>
+<pre><code class="language-bash">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;( 你的邮箱)
+</code></pre>
+<p>连续点击 Enter 键即可。</p>
+<h3 id="添加账户公钥">添加账户公钥</h3>
+<ol>
+<li>
+<p>在终端输入 open ~/.ssh，用文本编辑器打开『id_rsa.pub』文件（此处是生成公钥的默认名称，如果生成公钥时采用了其他名称，打开相对应的文件即可），复制全部内容</p>
+</li>
+<li>
+<p>登录 CODING ，进入『SSH 公钥』页面，点击『新增公钥』<br>
+将第一步中复制的内容填写到『公钥内容』一栏，公钥名称可随意填写</p>
+</li>
+<li>
+<p>设定公钥有效期，可选择具体日期或设置永久有效。</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/img/20191230144203_1586609710807.png" alt="设置公钥" loading="lazy"></figure>
+<ol start="4">
+<li>
+<p>点击『添加』，然后输入账户密码即可成功添加公钥</p>
+</li>
+<li>
+<p>完成后在命令行测试，首次建立链接会要求信任主机。命令</p>
+</li>
+</ol>
+<pre><code class="language-bash">ssh -T git@e.coding.net
+</code></pre>
+<p>输入yes就好。</p>
+<hr>
+<p>现在，你辛苦码完字后，只需在Shell里面输入<code>make up</code>（记得cd回Hexo项目根目录）就可以实现全自动的“提交-部署-发布”。爽吧?</p>
+<p>不仅如此，还可以在你换了其他电脑\操作系统，在Clone博客仓库后，可以直接用<code>make sync</code>自动安装依赖，剩下不少按回车键的时间呢<code>φ(゜▽゜*)♪</code>。</p>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+        
+
+        
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script type="application/javascript" src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script type="application/javascript">
+
+var options = {
+  shortname: 'jsuses-blog',
+  apikey: 'c7Jz7qwa2Rxu1b59XjtpYyALBsVKlyLRoKc46jF4Bh6LMDTVFSjfuKjnfcWnBI3U',
+}
+if ('https://disqusjs-proxy.arn0.now.sh/') {
+  options.api = 'https://disqusjs-proxy.arn0.now.sh/'
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+        
+      
+
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BAmakefile">创建Makefile</a></li>
+<li><a href="#%E5%86%8D%E8%AE%BE%E7%BD%AE%E4%B8%80%E4%B8%8Bgit%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95">再设置一下Git免密登录</a>
+<ul>
+<li><a href="#%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BB%88%E7%AB%AF%E8%BE%93%E5%85%A5">打开命令行终端输入</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E8%B4%A6%E6%88%B7%E5%85%AC%E9%92%A5">添加账户公钥</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://blog.arn0.org/media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+    <script src="https://blog.arn0.org/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+  
+    
+  
+</body>
+
+</html>

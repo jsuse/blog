@@ -1,0 +1,285 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Arn0&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.arn0.org/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://blog.arn0.org/media/css/tailwind.css">
+<link rel="stylesheet" href="https://blog.arn0.org/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Arn0&#39;s Blog - Atom Feed" href="https://blog.arn0.org/atom.xml">
+
+    
+
+  <meta name="description" content="" />
+</head>
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+
+    <div class="nav py-3 md:py-8 fixed w-full z-10 bg-gray-50 dark:bg-gray-700 transition-all duration-300" :class="{ 'scroll': scrolled }">
+  <div class="flex justify-end px-4">
+    <div class="w-8 h-8 flex justify-center items-center rounded-full md:hidden" @click="showMenu = !showMenu">
+      <i class="ri-close-line" v-show="showMenu"></i>
+      <i class="ri-menu-3-line" v-show="!showMenu"></i>
+    </div>
+  </div>
+  <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
+    
+      <a href="/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        首页
+      </a>
+    
+      <a href="/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        归档
+      </a>
+    
+      <a href="/tags" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        标签
+      </a>
+    
+      <a href="/post/about" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        关于
+      </a>
+    
+      <a href="https://blog.arn0.org/post/U06tMcf8P" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        友链
+      </a>
+    
+    <a href="https://blog.arn0.org/atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+      RSS
+    </a>
+  </nav>
+</div>
+
+    <div class="max-w-4xl w-full mx-auto pt-32">
+      
+
+      <div class="shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">
+        
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/Unofficial_-·-Sakura_Incomplete_Configuration_Tutorial/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          非官方 · Sakura不完全配置教程
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2019-11-18</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <h1 id="为什么要写这个">为什么要写这个？</h1>
+<p>一部分原因是看到在白猫的博客主题页面上面有很多经常被问到的问题，一直得不到回答，而且就算是把自己的问题贴上Google搜也搜不到答案。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/Unofficial_-·-Sakura_Incomplete_Configuration_Tutorial/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/Sakura.webp" alt="非官方 · Sakura不完全配置教程">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/Nginx禁止IP直接访问，只允许域名访问/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          Nginx禁止IP直接访问，只允许域名访问
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2019-11-18</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>Nginx 会默认将空主机头一直打开，这样会导致我们的服务器遭遇恶意域名指向。我们可以通过关闭空主机头来防止这种情况发生。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/Nginx禁止IP直接访问，只允许域名访问/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/nginx.webp" alt="Nginx禁止IP直接访问，只允许域名访问">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/Adobe官方软件离线安装包下载地址/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          Adobe官方软件离线安装包下载地址
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2019-11-18</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>在网上搜到的Adobe系列软件离线包很多已经过时了，官网虽然有提供离线包下载链接，但藏得很深，而Adobe Creative Cloud的下载链接却放在官网显眼位置，估计是想增加 Adobe Creative Cloud 的安装量，顺便在其中推销他家的其他产品。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/Adobe官方软件离线安装包下载地址/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/adobe.webp" alt="Adobe官方软件离线安装包下载地址">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/WordPress博客安全优化/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          WordPress博客安全优化
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2019-11-18</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <h3 id="操作系统及lnmp基础防护">操作系统及LNMP<strong>基础防护</strong></h3>
+<p>WordPress搭建于操作系统以及LNMP之上，想要WordPress安全，那操作系统和LNMP自然需要做些安全防护。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/WordPress博客安全优化/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/wordpress.webp" alt="WordPress博客安全优化">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/Linux下减少SSD磨损/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          Linux下减少SSD磨损
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2019-11-18</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>SSD容量越小，在相同写入量的情况下，单颗闪存遭到磨损的次数就越多。而闪存寿命由磨损次数决定，所以SSD容量越小寿命越短。想想我那可怜的120GTLC颗粒SSD可能经不起我多久的暴力使用就可能寿终正寝了。所以，今天就要给他减负，将操作系统系统下的缓存、部分日志丢给内存保管。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/Linux下减少SSD磨损/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/ssd.webp" alt="Linux下减少SSD磨损">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/iRedmail创建新用户/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          iRedmail创建新用户
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2019-11-18</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>参照<a href="https://docs.iredmail.org/sql.create.mail.user.html">官方文档</a>，成功新建邮箱用户。在此记录以备不时之需。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/iRedmail创建新用户/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/mail.webp" alt="iRedmail创建新用户">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/base64编码-解码字符串/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          base64编码-解码字符串
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2019-11-18</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>先确保你的系统装有叫openssl的工具（一般Linux发行版都会默认安装）。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/base64编码-解码字符串/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/encryption1.webp" alt="base64编码-解码字符串">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/opensuse快照回滚/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          OpenSuse快照回滚
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2019-11-18</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>手贱降级关键的系统软件包,导致基于GTK2的所有软件都无法启动,试图升级libgtk2.0无果.无奈之下使用OpenSuse自带快照管理工具Snapper进行抢救.</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/opensuse快照回滚/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/opensuse.webp" alt="OpenSuse快照回滚">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/hello-gridea/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          Hello Gridea
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2018-12-12</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/hello-gridea/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://blog.arn0.org/post-images/hello-gridea.png" alt="Hello Gridea">
+    
+  </div>
+  
+      </div>
+
+      
+  <div class="my-4 flex justify-between px-4 md:px-0">
+    
+      <a href="https://blog.arn0.org/page/2/" class="btn btn-white">
+        <i class="ri-arrow-left-line mr-4"></i>
+        上一页
+      </a>
+    
+    
+  </div>
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</footer>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://blog.arn0.org/media/scripts/main.js"></script>
+</body>
+
+</html>

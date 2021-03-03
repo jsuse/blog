@@ -1,0 +1,466 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>服务器部署Hexo-admin - Arn0&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.arn0.org/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://blog.arn0.org/media/css/tailwind.css">
+<link rel="stylesheet" href="https://blog.arn0.org/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="服务器部署Hexo-admin - Arn0&#39;s Blog - Atom Feed" href="https://blog.arn0.org/atom.xml">
+
+    
+
+  <meta name="description" content="之前试了一下用Netlify托管我的Hexo博客，但用着感觉不太顺心。所以就试着直接用HexoAdmin来管理文章。虽说Netlify有可视化的编辑器，手机也可以打开，但是因为那个编辑器并没有自适应页面大小，手机访问直接给你怼个大页面，找个..." />
+  <meta property="og:title" content="服务器部署Hexo-admin - Arn0&#39;s Blog">
+  <meta property="og:description" content="之前试了一下用Netlify托管我的Hexo博客，但用着感觉不太顺心。所以就试着直接用HexoAdmin来管理文章。虽说Netlify有可视化的编辑器，手机也可以打开，但是因为那个编辑器并没有自适应页面大小，手机访问直接给你怼个大页面，找个..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://blog.arn0.org/post/服务器部署Hexo-admin/" />
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/hexo-admin.webp">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="服务器部署Hexo-admin - Arn0&#39;s Blog">
+  <meta name="twitter:description" content="之前试了一下用Netlify托管我的Hexo博客，但用着感觉不太顺心。所以就试着直接用HexoAdmin来管理文章。虽说Netlify有可视化的编辑器，手机也可以打开，但是因为那个编辑器并没有自适应页面大小，手机访问直接给你怼个大页面，找个...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://blog.arn0.org/post/服务器部署Hexo-admin/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+    <link rel="stylesheet" href="https://blog.arn0.org/media/css/prism-atom-dark.css">
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://blog.arn0.org" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      Arn0&#39;s Blog
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          服务器部署Hexo-admin
+        </h1>
+        
+          <img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/hexo-admin.webp" alt="服务器部署Hexo-admin" class="block w-full mb-8">
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2020-03-10 · 5 min read</div>
+          
+            <a href="https://blog.arn0.org/tag/Pvr7cWrf1p/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Hexo
+            </a>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <p>之前试了一下用<a href="https://arn0note.github.io/post/%E4%BD%BF%E7%94%A8CMS%E7%AE%A1%E7%90%86Hexo%E6%96%87%E7%AB%A0/">Netlify托管我的Hexo博客</a>，但用着感觉不太顺心。所以就试着直接用HexoAdmin来管理文章。虽说Netlify有可视化的编辑器，手机也可以打开，但是因为那个编辑器并没有自适应页面大小，手机访问直接给你怼个大页面，找个按钮都要比划半天……</p>
+<!--more-->
+<p>所以用手机操作那就非常蛋疼了。虽然PC端体验还行，但是我手边又不是经常有电脑，于是乎就直接将HexoAdmin部署到服务器上了，毕竟HexoAdmin有自适应的页面，手机也可以愉快玩耍。用了几天感觉海星。</p>
+<h2 id="安装hexoadmin">安装HexoAdmin</h2>
+<p>cd 到hexo的根目录，然后安装<code>hexo-admin</code></p>
+<pre><code class="language-bash">npm i hexo-admin --save
+</code></pre>
+<h2 id="部署">部署</h2>
+<p>安装pm2</p>
+<pre><code class="language-bash">npm i -g pm2
+</code></pre>
+<h3 id="创建runjs">创建run.js</h3>
+<pre><code class="language-javascript">const { exec } = require('child_process')
+exec('hexo server -p 4000 -d &amp; ',(error, stdout, stderr) =&gt; {
+	if(error){
+                console.log('exec error: ${error}')
+                return
+        }
+        console.log('stdout: ${stdout}');
+        console.log('stderr: ${stderr}');
+})
+</code></pre>
+<h3 id="创建pm2任务">创建pm2任务</h3>
+<pre><code class="language-bash">pm2 start ./run.js --name HexoBlog
+pm2 save
+</code></pre>
+<h2 id="配置webserver反向代理">配置WebServer反向代理</h2>
+<h3 id="安装caddy">安装Caddy</h3>
+<pre><code class="language-bash">curl https://getcaddy.com | bash -s personal tls.dns.cloudflare
+</code></pre>
+<p>我在这里强烈建议在这个服务器上套一个Cloudflare CDN。所以安装的Caddy会附带一个cloudflare插件。</p>
+<p>嘛，如果不想要这个插件的话，可以将<code>tls.dns.cloudflare</code>删掉。</p>
+<h3 id="创建caddy-file">创建Caddy File</h3>
+<p>创建并编辑<code>/etc/caddy.conf</code></p>
+<pre><code class="language-conf">examples.com
+{
+        proxy / localhost:4000
+        tls {
+			dns cloudflare
+		}
+
+        basicauth username password {
+                realm &quot;xxx's documents&quot;
+                /admin
+        }
+}
+</code></pre>
+<h4 id="注意">注意</h4>
+<p><code>examples.com</code>改为你自己的域名<br>
+<code>basicauth</code>那里的<code>username</code>和<code>password</code>分别改为你想要设置的页面访问用户名和密码<br>
+如果你不喜欢web server的basicauth的话，可以将上面的<code>basicauth</code>去掉，直接用<a href="https://github.com/jaredly/hexo-admin#4-password-protection">Hexo-admin自带的Authentification</a>。<br>
+<code>realm</code>后面的是登陆对话框的提示内容，这里随意修改。</p>
+<p>如果你不打算套Cloudflare CDN的话，可以将下面部分去掉。</p>
+<pre><code class="language-conf">tls {
+	dns cloudflare
+}
+</code></pre>
+<h3 id="创建systemd服务">创建Systemd服务</h3>
+<p>创建<code>/etc/systemd/system/caddy.service</code><br>
+添加下面的内容</p>
+<pre><code>[Unit]
+Description=Caddy HTTP/2 web server
+After=syslog.target
+After=network.target
+
+[Service]
+User=root
+Group=root
+LimitNOFILE=64000
+Environment=CLOUDFLARE_EMAIL=你注册Cloudflre的邮箱
+Environment=CLOUDFLARE_API_KEY=你的Cloudflare Global API Key
+ExecStart=/usr/local/bin/caddy --conf=/etc/caddy.conf
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h4 id="注意-2">注意</h4>
+<p>两行<code>Environment</code>需要根据实际情况更改。如果你不打算套Cloudflare CDN的话，可以将这两行去掉.</p>
+<p>这里将用户名指定成root主要是为了方便使用80和443端口。如果觉得不安全，可以参考<a href="https://github.com/abiosoft/caddy-docker/issues/106#issuecomment-547846209">Use a user, not root, to run caddy #106</a>，但是要用到Docker。</p>
+<h3 id="激活systemd-service">激活Systemd service</h3>
+<pre><code class="language-bash">sudo systemctl enable caddy.service
+</code></pre>
+<h2 id="禁止从外网直接访问hexo-admin可选">禁止从外网直接访问hexo-admin(可选）</h2>
+<pre><code class="language-bash">iptables -A INPUT -s 127.0.0.1 -p tcp --dport 4000 -j ACCEPT
+</code></pre>
+<p>如果用的是GCP，并且套了Cloudflare的CDN，那么还可以直接用GCP的防火墙规则。<br>
+参考[GCP 防火墙只允许CDN IP访问 保护原站](https://blog.arn0.org/post/GCP 防火墙只允许CDN IP访问 保护源站/)</p>
+<h2 id="配置deploy">配置deploy</h2>
+<p>创建<code>hexo-deploy.sh</code>文件</p>
+<pre><code class="language-bash">#!/usr/bin/env sh
+make up
+</code></pre>
+<p>在hexo根木录下的_config.yml添加</p>
+<pre><code class="language-yaml">admin:
+	deployCommand: './hexo-deploy.sh'
+</code></pre>
+<p>HexoAdmin的deploy功能需要依赖hexo-deployer-git，这里安装一下</p>
+<pre><code class="language-bash">npm install hexo-deployer-git --save
+</code></pre>
+<p>接下来创建<code>Makefile</code>,添加下面内容</p>
+<pre><code class="language-makefile">up:
+                hexo d -g
+                git add *
+                git commit -m &quot;update blog&quot;
+                git push origin hexo-source
+sync:
+                npm i
+                sudo npm install -g hexo-cli --ignore-scripts
+</code></pre>
+<h4 id="注意-3">注意</h4>
+<p>up部分第4行决定了Git推送Hexo所有文件到哪个分支，具体要根据你的需要做些修改。</p>
+<h3 id="安装make">安装make</h3>
+<p>Debian/Ubuntu:</p>
+<pre><code class="language-bash">apt install make
+</code></pre>
+<p>CentOS/Redhat:</p>
+<pre><code class="language-bash">yum install make
+</code></pre>
+<h2 id="最后启动caddy服务">最后启动Caddy服务</h2>
+<pre><code class="language-bash">systemctl start caddy
+</code></pre>
+<h2 id="大功告成">大功告成</h2>
+<p>访问你的域名/admin就会直接弹窗要求登陆<br>
+<img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/hexo-admin-login.webp" alt="" loading="lazy"></p>
+<p>点击deploy就会自动部署Hexo<br>
+<img src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/hexo-deploy.webp" alt="" loading="lazy"></p>
+<blockquote>
+<p>PS: 在这里我是将Github仓库当作备份快照了，没有用到Github的Pages服务。还有我并没有将Hexo-admin的服务部署在这个博客的Web服务器上，而是另外开了台VPS来作为后端服务器，为的就是减轻这个Web服务器的负担，~~虽然这个破站根本就没有人访问。~~同时为了避免在自己电脑上写完文章后无法同步到后端服务器，在部署完Hexo-admin后我还设置了一下WebHooks，用来同步所有文件改动，设置WebHooks的方法可以看[我之前的文章](https://blog.arn0.org/post/Hexo 部署到自己的服务器/)。</p>
+</blockquote>
+<hr>
+参考链接
+<p><a href="http://goingmerry.cn/2019/10/22/Hexo-admin%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/">Hexo-admin服务器部署</a></p>
+<p><a href="https://voidalex.one/2018/02/19/%E4%B8%80%E7%A7%8D%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%80%9D%E8%B7%AF/">一种在服务器上部署Hexo博客的思路</a></p>
+<p><a href="https://www.wevg.org/archives/hexo-with-netlify-cms">给你的 Hexo 博客添加 CMS</a></p>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+        
+
+        
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script type="application/javascript" src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script type="application/javascript">
+
+var options = {
+  shortname: 'jsuses-blog',
+  apikey: 'c7Jz7qwa2Rxu1b59XjtpYyALBsVKlyLRoKc46jF4Bh6LMDTVFSjfuKjnfcWnBI3U',
+}
+if ('https://disqusjs-proxy.arn0.now.sh/') {
+  options.api = 'https://disqusjs-proxy.arn0.now.sh/'
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+        
+      
+
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85hexoadmin">安装HexoAdmin</a></li>
+<li><a href="#%E9%83%A8%E7%BD%B2">部署</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BArunjs">创建run.js</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BApm2%E4%BB%BB%E5%8A%A1">创建pm2任务</a></li>
+</ul>
+</li>
+<li><a href="#%E9%85%8D%E7%BD%AEwebserver%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86">配置WebServer反向代理</a>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85caddy">安装Caddy</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAcaddy-file">创建Caddy File</a>
+<ul>
+<li><a href="#%E6%B3%A8%E6%84%8F">注意</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%9B%E5%BB%BAsystemd%E6%9C%8D%E5%8A%A1">创建Systemd服务</a>
+<ul>
+<li><a href="#%E6%B3%A8%E6%84%8F-2">注意</a></li>
+</ul>
+</li>
+<li><a href="#%E6%BF%80%E6%B4%BBsystemd-service">激活Systemd service</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A6%81%E6%AD%A2%E4%BB%8E%E5%A4%96%E7%BD%91%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AEhexo-admin%E5%8F%AF%E9%80%89">禁止从外网直接访问hexo-admin(可选）</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AEdeploy">配置deploy</a><br>
+*
+<ul>
+<li><a href="#%E6%B3%A8%E6%84%8F-3">注意</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85make">安装make</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E5%90%8E%E5%90%AF%E5%8A%A8caddy%E6%9C%8D%E5%8A%A1">最后启动Caddy服务</a></li>
+<li><a href="#%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90">大功告成</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://blog.arn0.org/media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+    <script src="https://blog.arn0.org/media/prism.js"></script>
+    <script>
+      Prism.highlightAll()
+    </script>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+  
+    
+  
+</body>
+
+</html>

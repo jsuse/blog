@@ -1,0 +1,212 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Arn0&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.arn0.org/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://blog.arn0.org/media/css/tailwind.css">
+<link rel="stylesheet" href="https://blog.arn0.org/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Arn0&#39;s Blog - Atom Feed" href="https://blog.arn0.org/atom.xml">
+
+    
+
+  <meta name="description" content="" />
+</head>
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+
+    <div class="nav py-3 md:py-8 fixed w-full z-10 bg-gray-50 dark:bg-gray-700 transition-all duration-300" :class="{ 'scroll': scrolled }">
+  <div class="flex justify-end px-4">
+    <div class="w-8 h-8 flex justify-center items-center rounded-full md:hidden" @click="showMenu = !showMenu">
+      <i class="ri-close-line" v-show="showMenu"></i>
+      <i class="ri-menu-3-line" v-show="!showMenu"></i>
+    </div>
+  </div>
+  <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
+    
+      <a href="/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        首页
+      </a>
+    
+      <a href="/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        归档
+      </a>
+    
+      <a href="/tags" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        标签
+      </a>
+    
+      <a href="/post/about" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        关于
+      </a>
+    
+      <a href="https://blog.arn0.org/post/U06tMcf8P" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        友链
+      </a>
+    
+    <a href="https://blog.arn0.org/atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+      RSS
+    </a>
+  </nav>
+</div>
+
+    <div class="max-w-4xl w-full mx-auto pt-32">
+      <h1 class="text-2xl font-bold pb-8 flex justify-center items-center">
+        <i class="ri-hashtag"></i>
+        Hexo
+      </h1>
+      <div class="shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">
+        
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/change-to-sakura-theme/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          又换主题了
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-03-11</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p><s>额我为什么要说又?</s></p>
+<p>其实这个主题我之前早就用过了，不过当时用的是WordPress版本的，当时还得意洋洋地写了篇<s>狗屁不通的</s><a href="https://blog.arn0.org/post/Unofficial_-%C2%B7-Sakura_Incomplete_Configuration_Tutorial/">教程</a>。之前迁移到Hexo后就换到Suka用了一阵子，就觉得这种简洁风格不太适合我。于是乎就用回了Sakura。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/change-to-sakura-theme/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/Sakura.webp" alt="又换主题了">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/服务器部署Hexo-admin/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          服务器部署Hexo-admin
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-03-10</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>之前试了一下用<a href="https://arn0note.github.io/post/%E4%BD%BF%E7%94%A8CMS%E7%AE%A1%E7%90%86Hexo%E6%96%87%E7%AB%A0/">Netlify托管我的Hexo博客</a>，但用着感觉不太顺心。所以就试着直接用HexoAdmin来管理文章。虽说Netlify有可视化的编辑器，手机也可以打开，但是因为那个编辑器并没有自适应页面大小，手机访问直接给你怼个大页面，找个按钮都要比划半天……</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/服务器部署Hexo-admin/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/hexo-admin.webp" alt="服务器部署Hexo-admin">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/Travis部署Hexo/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          Travis部署Hexo
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-02-19</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>最近实在是无聊了,开始花式瞎折腾Hexo<s>的那些被玩剩下的玩法</s>，于是乎又水了一篇。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/Travis部署Hexo/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/TravisCI-Full.webp" alt="Travis部署Hexo">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/使用CMS管理Hexo文章/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          使用CMS管理Hexo文章
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-02-07</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>闲来无事折腾了一下Hexo，纯属偶然发现有一个叫<a href="https://www.netlify.com/">netlify</a>的网站可以提供静态网站的托管服务，能提供CMS服务，让静态网站也能享受类似WordPress的在线编辑！简直太棒了！</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/使用CMS管理Hexo文章/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/netlify.webp" alt="使用CMS管理Hexo文章">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/Hexo 部署到自己的服务器/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          Hexo 部署到自己的服务器
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2020-02-02</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <p>刚刚把服务器迁移到OranMe的服务器上了。原因无他，就是Coding Page的国外访问速度实在是一般，毕竟是免费的东西嘛，也是意料之中。</p>
+<p>趁着有人要出OranMe的Web Only主机，就把博客迁过来了。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/Hexo 部署到自己的服务器/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/hexo.webp" alt="Hexo 部署到自己的服务器">
+    
+  </div>
+
+  <div class="p-8 border-b border-gray-200 dark:border-gray-700 flex relative overflow-hidden flex-col md:flex-row animated fadeIn">
+    
+    <div class="flex-1 order-2 md:order-1">
+      <h2 class="text-2xl font-semibold mb-4">
+        <a href="https://blog.arn0.org/post/腾讯云CI自动构建Hexo/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+          腾讯云CI自动构建Hexo
+        </a>
+      </h2>
+      <div class="mb-4 text-xs text-gray-500">2019-12-25</div>
+      <div class="mb-4 text-gray-500 dark:text-gray-300">
+        <blockquote>
+<p>这篇文章要是发了出来，那我就写教程。——写于2019年12月26日 PM3：00</p>
+</blockquote>
+<p>好的，为了履行对自己的承诺，<s>今天就水一篇文章</s>来教大伙用腾讯云CI自动构建Hexo。</p>
+
+      </div>
+      <a href="https://blog.arn0.org/post/腾讯云CI自动构建Hexo/" class="btn">
+        Read more
+      </a>
+    </div>
+    
+      <img class="flex-shrink-0 self-start md:ml-4 mb-4 md:mb-0 rounded-sm object-cover featured-img order-1 md:order-2 w-full h-40 md:w-56 md:h-32" loading="lazy" src="https://cdn.jsdelivr.net/gh/arn0blog/res@master/static_files/tencent.webp" alt="腾讯云CI自动构建Hexo">
+    
+  </div>
+  
+      </div>
+
+      
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</footer>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://blog.arn0.org/media/scripts/main.js"></script>
+</body>
+</html>
